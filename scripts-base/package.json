@@ -12,7 +12,7 @@
     "type": "git",
     "url": "https://github.com/manGoweb/npm/tree/master/scripts-base"
   },
-  "author": "manGoweb",
+  "author": "manGoweb <info@mangoweb.cz> (https://mangoweb.cz)",
   "license": "MIT",
   "devDependencies": {
     "typescript": "^3.1.6"

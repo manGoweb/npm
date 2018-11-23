@@ -15,7 +15,7 @@
   "files": [
     "src/"
   ],
-  "author": "manGoweb",
+  "author": "manGoweb <info@mangoweb.cz> (https://mangoweb.cz)",
   "license": "MIT",
   "prepare" : "npm run build"
 }
