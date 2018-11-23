@@ -1,0 +1,14 @@
+@import '../mixins/size'
+
+%cover
+	min-width: 100%
+	min-height: 100%
+	max-width: none
+	margin-left: 50%
+	transform: translateX(-50%) scale(1.02) // small upscale to fill container entirely
+
+	@supports (object-fit: cover)
+		+size(100%)
+		margin-left: 0
+		transform: scale(1.02)
+		object-fit: cover
