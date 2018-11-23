@@ -96,7 +96,7 @@ Just a simple clear fix
 #### `fixed`
 See `absolute`
 
-####`fluid`
+#### `fluid`
 Signature: `fluid($property-name, $min-viewport-width, $max-viewport-width, $min-value, $max-value)`
 
 Allows you to set a property value to a linearly interpolated value with respect to the viewport width.
