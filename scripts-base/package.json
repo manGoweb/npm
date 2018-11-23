@@ -2,9 +2,10 @@
   "name": "@mangoweb/scripts-base",
   "version": "0.0.1",
   "description": "Simple component model for small to meduim sites. Usable from JS & TS.",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc"
   },
   "repository": {
     "type": "git",
