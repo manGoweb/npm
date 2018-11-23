@@ -25,9 +25,9 @@ export class InView extends Component<InViewData> {
 		super(el, data)
 
 		this.targets = data.targets ? this.el.querySelectorAll(data.targets) : [this.el]
-		this.threshold = data.threshold || 0
-		this.detectOnce = data.detectOnce !== false
-		this.strictTop = !!data.strictTop
+		this.threshold = this.getProp('threshold', 0)
+		this.detectOnce = this.getProp('detectOnce', true)
+		this.strictTop = this.getProp('strictTop', false)
 
 		if ('IntersectionObserver' in window) {
 			this.observerInit()

@@ -45,6 +45,10 @@ export class Component<D, E extends HTMLElement = HTMLElement> {
 		return parent.querySelectorAll(selector) as NodeListOf<C>
 	}
 
+	protected getProp<N extends keyof D>(prop: N, defaultValue: Exclude<D[N], undefined>): Exclude<D[N], undefined> {
+		return this.data[prop] === undefined ? defaultValue : (this.data[prop] as Exclude<D[N], undefined>)
+	}
+
 	public init() {}
 
 	private attachListeners() {
