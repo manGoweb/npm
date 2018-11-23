@@ -1,0 +1,87 @@
+@import 'common'
+$alreadyOutput-global: false !default
+
+@if $alreadyOutput-global == false
+	$alreadyOutput-global: true
+
+	/*! Default styles from your beloved manGoweb (https://mangoweb.cz) */
+	*, *::before, *::after
+		box-sizing: inherit
+
+	html
+		box-sizing: border-box
+		font-size: $base-font-size
+
+	body
+		background: $c-text-back
+		color: $c-text
+		font-family: $font-family-base
+		font-size: $base-font-size
+		font-smoothing: antialiased
+		-webkit-font-smoothing: antialiased
+		line-height: $gratio
+		overflow-x: hidden
+		margin: 0
+		padding: 0
+
+	a
+		color: inherit
+		text-decoration: underline
+
+		&:hover
+			text-decoration: none
+
+	h1, h2, h3, h4, h5, h6
+		font-family: $font-family-head
+		line-height: 1
+		margin: $spacing*2 0 1em
+		text-rendering: optimizeLegibility
+
+	img
+		max-width: 100%
+		height: auto
+		vertical-align: middle
+
+	p
+		margin: 0 0 $spacing
+
+		img
+			margin-bottom: $spacing
+
+	ol, ul, li
+		margin: 0
+		padding: 0
+
+	blockquote
+		margin: $spacing 0
+		border-left: 2px solid
+		color: $c-text-light
+
+	table
+		width: 100%
+
+	input,
+	button,
+	select,
+	textarea
+		font-family: inherit
+		font-size: inherit
+		line-height: inherit
+
+	button
+		border: none
+		background: transparent
+		padding: 0
+		margin: 0
+		font-weight: inherit
+		text-align: inherit
+		color: inherit
+		cursor: pointer
+		text-transform: inherit
+
+	svg
+		pointer-events: none
+
+	b, i
+		font-style: normal
+		font-weight: normal
