@@ -1,0 +1,18 @@
+{
+  "name": "@mangoweb/scripts-base",
+  "version": "0.0.1",
+  "description": "Simple component model for small to meduim sites. Usable from JS & TS.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/manGoweb/npm/tree/master/scripts-base"
+  },
+  "author": "manGoweb",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^3.1.6"
+  }
+}
