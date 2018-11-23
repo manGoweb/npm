@@ -1,11 +1,11 @@
 import { Component } from './Component'
 
 interface InViewData {
-	targets: string
-	threshold: number
-	detectOnce: boolean
-	strictTop: boolean
-	afterUpdate: Function
+	targets?: string
+	threshold?: number
+	detectOnce?: boolean
+	strictTop?: boolean
+	afterUpdate: (isTop: boolean, isBottom: boolean) => void
 }
 
 export class InView extends Component<InViewData> {
@@ -26,8 +26,8 @@ export class InView extends Component<InViewData> {
 
 		this.targets = data.targets ? this.el.querySelectorAll(data.targets) : [this.el]
 		this.threshold = data.threshold || 0
-		this.detectOnce = data.hasOwnProperty('detectOnce') ? data.detectOnce : true
-		this.strictTop = data.strictTop || false
+		this.detectOnce = data.detectOnce !== false
+		this.strictTop = !!data.strictTop
 
 		if ('IntersectionObserver' in window) {
 			this.observerInit()
@@ -88,8 +88,8 @@ export class InView extends Component<InViewData> {
 	}
 
 	_updateState(target: any, intersectionRatio: number, targetTopAboveViewCenter: boolean) {
-		const hasTopClassThreshold = target.classList.contains(this.CLASSES.topThreshold)
-		const hasBottomClassThreshold = target.classList.contains(this.CLASSES.bottomThreshold)
+		const hasTopClassThreshold: boolean = target.classList.contains(this.CLASSES.topThreshold)
+		const hasBottomClassThreshold: boolean = target.classList.contains(this.CLASSES.bottomThreshold)
 		const strictTop =
 			this.data.hasOwnProperty('detectOnce') && this.data.strictTop ? this.threshold : 0
 		const topThreshold = hasTopClassThreshold ? strictTop : this.threshold
