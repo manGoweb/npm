@@ -13,14 +13,14 @@ export class Component<D, E extends HTMLElement = HTMLElement> {
 	protected readonly el: E
 	protected readonly data: D
 
-	getListeners = (): EventListeners => []
+	protected getListeners = (): EventListeners => []
 
 	constructor(element: E, data: D) {
 		this.el = element
 		this.data = data
 	}
 
-	setup() {
+	public setup() {
 		this.attachListeners()
 
 		this.init()
@@ -45,7 +45,7 @@ export class Component<D, E extends HTMLElement = HTMLElement> {
 		return parent.querySelectorAll(selector) as NodeListOf<C>
 	}
 
-	init() {}
+	public init() {}
 
 	private attachListeners() {
 		const listeners = this.getListeners()

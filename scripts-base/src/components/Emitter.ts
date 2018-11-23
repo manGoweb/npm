@@ -17,15 +17,16 @@ export interface EmitterData {
  */
 export class Emitter extends Component<EmitterData> {
 	static componentName = 'Emitter'
-	events: Events = []
 
-	getListeners = (): EventListeners => [['click', this.handleClick]]
+	private events: Events = []
 
-	init() {
+	protected getListeners = (): EventListeners => [['click', this.handleClick]]
+
+	public init() {
 		this.events = Array.isArray(this.data.events) ? this.data.events : [this.data.events]
 	}
 
-	handleClick(e: MouseEvent) {
+	private handleClick(e: MouseEvent) {
 		e.preventDefault()
 
 		this.events.map((eventType) => {

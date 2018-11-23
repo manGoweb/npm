@@ -10,17 +10,18 @@ interface InViewData {
 
 export class InView extends Component<InViewData> {
 	static componentName = 'InView'
-	targets: NodeListOf<Element> | HTMLElement[]
-	threshold: number
-	detectOnce: boolean
-	strictTop: boolean
+
+	private readonly targets: NodeListOf<Element> | HTMLElement[]
+	private readonly threshold: number
+	private readonly detectOnce: boolean
+	private readonly strictTop: boolean
 
 	private readonly CLASSES = Object.freeze({
 		topThreshold: 'view-topThreshold',
 		bottomThreshold: 'view-bottomThreshold',
 	})
 
-	constructor(el: HTMLElement, data: InViewData) {
+	public constructor(el: HTMLElement, data: InViewData) {
 		super(el, data)
 
 		this.targets = data.targets ? this.el.querySelectorAll(data.targets) : [this.el]
@@ -29,13 +30,13 @@ export class InView extends Component<InViewData> {
 		this.strictTop = data.strictTop || false
 
 		if ('IntersectionObserver' in window) {
-			this._observerInit()
+			this.observerInit()
 		} else {
-			this._onScrollInit()
+			this.onScrollInit()
 		}
 	}
 
-	_observerInit() {
+	private observerInit() {
 		const observer = new IntersectionObserver(
 			(entries) => {
 				//callback
@@ -60,7 +61,7 @@ export class InView extends Component<InViewData> {
 		}
 	}
 
-	_onScrollInit() {
+	private onScrollInit() {
 		window.addEventListener('scroll', () => {
 			window.requestAnimationFrame(() => {
 				for (let i = 0, length = this.targets.length; i < length; i++) {
