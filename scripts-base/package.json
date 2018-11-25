@@ -17,5 +17,8 @@
   "devDependencies": {
     "typescript": "^3.1.6"
   },
-  "prepare": "npm run build"
+  "prepare": "npm run build",
+  "publishConfig": {
+    "access": "public"
+  }
 }

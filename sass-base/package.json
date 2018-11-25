@@ -25,5 +25,8 @@
   ],
   "author": "manGoweb <info@mangoweb.cz> (https://mangoweb.cz)",
   "license": "MIT",
-  "prepare" : "npm run build"
+  "prepare" : "npm run build",
+  "publishConfig": {
+    "access": "public"
+  }
 }
