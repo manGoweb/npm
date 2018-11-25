@@ -1,7 +1,7 @@
 {
   "name": "@mangoweb/sass-base",
   "version": "0.0.1",
-  "description": "Simple component model for small to meduim sites. Usable from JS & TS.",
+  "description": "The manGoweb template for sass styles employed on small to medium sized projects.",
   "main": "index.sass",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -13,7 +13,15 @@
   },
   "sass": "src/index.sass",
   "files": [
-    "src/"
+    "abstract/",
+    "animations/",
+    "functions/",
+    "mixins/",
+    "parts/",
+    "_common.sass",
+    "_crucialVariables.sass",
+    "_global.sass",
+    "_variables.sass"
   ],
   "author": "manGoweb <info@mangoweb.cz> (https://mangoweb.cz)",
   "license": "MIT",
