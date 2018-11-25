@@ -1,6 +1,6 @@
 {
   "name": "@mangoweb/sass-base",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "The manGoweb template for sass styles employed on small to medium sized projects.",
   "main": "index.sass",
   "scripts": {
@@ -25,7 +25,7 @@
   ],
   "author": "manGoweb <info@mangoweb.cz> (https://mangoweb.cz)",
   "license": "MIT",
-  "prepare" : "npm run build",
+  "prepare": "npm run build",
   "publishConfig": {
     "access": "public"
   }
