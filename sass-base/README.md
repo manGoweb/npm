@@ -42,7 +42,8 @@ To gain a finer control over what and how is imported, you might want to follow 
 ### Defined functions
 
 #### `em`
-Turns a (potentially unitless) number in pixels into em
+Turns a (potentially unitless) number in pixels into `em`
+
 Usage:
 - `em(16)` returns `1em` (based on `$font-size`)
 - `em(16px)` returns `1em` (based on `$font-size`)
@@ -51,7 +52,8 @@ Usage:
 where `$font-size` is the second parameter which defaults to `$base-font-size`, which is typically `16px`.
 
 #### `rem`
-Turns a (potentially unitless) number in pixels into rem
+Turns a (potentially unitless) number in pixels into `rem`
+
 Usage:
 - `rem(16)` returns `1rem` (based on `$base-font-size`)
 - `rem(16px)` returns `1rem` (based on `$base-font-size`)
@@ -130,7 +132,7 @@ Examples:
 - `+media(123)`
 	compiles to
 	`@media (min-width: 7.6875em)`
-- `+media(123M)
+- `+media(123M)`
 	compiles to
 	`@media (max-width: 123px)`
 - `+media(123em maxWidth(456em))`
