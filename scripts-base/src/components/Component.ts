@@ -61,7 +61,7 @@ export class Component<D, E extends HTMLElement = HTMLElement> {
 				// EventListenerSpec
 				const [type, callback] = listenersSpec
 
-				this.el.addEventListener(type, callback.bind(this), false)
+				this.el.addEventListener(type, callback.bind(this) as EventListener, false)
 			} else {
 				// DelegateEventListenerSpec
 				const [type, delegateSelector, callback] = listenersSpec
@@ -76,7 +76,7 @@ export class Component<D, E extends HTMLElement = HTMLElement> {
 								const delegateEvent: any = e
 								delegateEvent.delegateTarget = target
 
-								return callback.call(this, delegateEvent)
+								return (callback as EventListener).call(this, delegateEvent)
 							}
 
 							target = target.parentElement
