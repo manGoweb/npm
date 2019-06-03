@@ -15,16 +15,17 @@ type DelegateEvent<E extends BubblingEventType> = HTMLElementEventMap[E] & {
 	delegateTarget: HTMLElement
 }
 
+type DelegateEventListenerCallback<E extends BubblingEventType> = (event: DelegateEvent<E>) => void
+
 type DelegateEventListenerSpec<E extends BubblingEventType> = [
 	E,
 	string,
-	(event: DelegateEvent<E>) => void
+	DelegateEventListenerCallback<E>
 ]
 
-type EventListenerSpec<E extends keyof HTMLElementEventMap> = [
-	E,
-	(event: HTMLElementEventMap[E]) => void
-]
+type EventListenerCallback<E extends keyof HTMLElementEventMap> = (event: HTMLElementEventMap[E]) => void
+
+type EventListenerSpec<E extends keyof HTMLElementEventMap> = [E, EventListenerCallback<E>]
 
 type EventListeners = Array<
 	| { [E in keyof HTMLElementEventMap]: EventListenerSpec<E> }[keyof HTMLElementEventMap]

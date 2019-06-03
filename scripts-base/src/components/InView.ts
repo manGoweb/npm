@@ -41,6 +41,9 @@ export class InView extends Component<InViewData> {
 			(entries) => {
 				//callback
 				entries.forEach((entry) => {
+					if (!entry.rootBounds) {
+						return
+					}
 					const target = entry.target
 					const intersectionRatio = entry.intersectionRatio
 					this._updateState(
