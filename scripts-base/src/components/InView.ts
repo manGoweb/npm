@@ -40,14 +40,16 @@ export class InView extends Component<InViewData> {
 		const observer = new IntersectionObserver(
 			(entries) => {
 				//callback
-				entries.forEach((entry) => {
+				entries.forEach((entry: IntersectionObserverEntry) => {
 					const target = entry.target
 					const intersectionRatio = entry.intersectionRatio
-					this._updateState(
-						target,
-						intersectionRatio,
-						entry.boundingClientRect.top < entry.rootBounds.height / 2
-					)
+					if (entry.boundingClientRect && entry.rootBounds) {
+						this._updateState(
+							target,
+							intersectionRatio,
+							entry.boundingClientRect.top < entry.rootBounds.height / 2
+						)
+					}
 				})
 			},
 			{
