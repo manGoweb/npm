@@ -31,7 +31,7 @@ export const inject = (
 				const keyCast = key as keyof ScriptElementConfig
 
 				if (options[keyCast]) {
-					script[keyCast] = options[keyCast]!
+					script.setAttribute(keyCast, options[keyCast] as string)
 				}
 			}
 		}
