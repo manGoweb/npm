@@ -4,12 +4,12 @@ export interface NamedComponent {
 	componentName: string
 }
 
-export type ComponentConstructor<D, E extends HTMLElement = HTMLElement> = NamedComponent &
+export type ComponentConstructor<D, E extends HTMLElement> = NamedComponent &
 	(new (element: E, data: D) => Component<D, E>)
 
 export class ComponentInitializationError extends Error {}
 
-export class Component<D, E extends HTMLElement = HTMLElement> {
+export class Component<D = {}, E extends HTMLElement = HTMLElement> {
 
 	protected getListeners = (): EventListeners => []
 
