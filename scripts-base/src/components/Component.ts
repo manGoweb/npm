@@ -61,22 +61,27 @@ export class Component<D, E extends HTMLElement = HTMLElement> {
 				// EventListenerSpec
 				const [type, callback] = listenersSpec
 
-				this.el.addEventListener(type, callback.bind(this), false)
+				this.el.addEventListener<typeof type>(type, callback.bind(this) as EventListenerCallback<typeof type>, false)
 			} else {
 				// DelegateEventListenerSpec
 				const [type, delegateSelector, callback] = listenersSpec
 
 				this.el.addEventListener(
 					type,
-					(e: Event) => {
+					(e: HTMLElementEventMap[typeof type]) => {
 						let target = e.target
 
 						while (target && target instanceof HTMLElement && target !== this.el) {
 							if (matchesSelector(target, delegateSelector)) {
-								const delegateEvent: any = e
+								const delegateEvent: HTMLElementEventMap[typeof type] & {
+									delegateTarget?: HTMLElement
+								} = e
 								delegateEvent.delegateTarget = target
 
-								return callback.call(this, delegateEvent)
+								return (callback as DelegateEventListenerCallback<typeof type>).call(
+									this,
+									delegateEvent as DelegateEvent<typeof type>
+								)
 							}
 
 							target = target.parentElement

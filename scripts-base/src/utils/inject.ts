@@ -1,9 +1,7 @@
 const head = document.head
 const noop = () => {}
 
-type ScriptElementConfig = {
-	[P in Exclude<keyof HTMLScriptElement, keyof HTMLElement>]?: HTMLScriptElement[P]
-}
+type ScriptElementConfig = Partial<Omit<HTMLScriptElement, keyof HTMLElement>>
 type ScriptConfig = ScriptElementConfig & { content: string }
 
 export const inject = (
@@ -30,8 +28,8 @@ export const inject = (
 			} else {
 				const keyCast = key as keyof ScriptElementConfig
 
-				if (options[keyCast]) {
-					script[keyCast] = options[keyCast]!
+				if (options[keyCast] !== undefined) {
+					(script as any)[keyCast] = options[keyCast]
 				}
 			}
 		}
