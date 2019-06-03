@@ -16,10 +16,10 @@ export class InView extends Component<InViewData> {
 	private readonly detectOnce: boolean
 	private readonly strictTop: boolean
 
-	private readonly CLASSES = Object.freeze({
+	private readonly CLASSES = {
 		topThreshold: 'view-topThreshold',
 		bottomThreshold: 'view-bottomThreshold',
-	})
+	} as const
 
 	public constructor(el: HTMLElement, data: InViewData) {
 		super(el, data)
