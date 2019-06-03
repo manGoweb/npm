@@ -1,3 +1,4 @@
+/// <reference path="extensions.d.ts" />
 /// <reference path="globals.d.ts" />
 /// <reference path="types.d.ts" />
 
