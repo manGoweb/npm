@@ -10,15 +10,12 @@ export type ComponentConstructor<D, E extends HTMLElement = HTMLElement> = Named
 export class ComponentInitializationError extends Error {}
 
 export class Component<D, E extends HTMLElement = HTMLElement> {
-	protected readonly el: E
-	protected readonly data: D
 
 	protected getListeners = (): EventListeners => []
 
-	constructor(element: E, data: D) {
-		this.el = element
-		this.data = data
-	}
+	constructor(
+		protected readonly el: E,
+		protected readonly data: D) {}
 
 	public setup() {
 		this.attachListeners()
