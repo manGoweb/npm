@@ -1,8 +1,8 @@
 {
   "packages": [
     "packages/*",
-    "scripts-base",
-    "sass-base"
+    "sass-base",
+    "scripts-base"
   ],
-  "version": "0.0.0"
+  "version": "0.0.4"
 }
