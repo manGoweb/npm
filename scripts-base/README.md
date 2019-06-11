@@ -45,7 +45,7 @@ In your template:
 
 You must:
 - Inherit from `Component`
-- Define `static displayName: string`
+- Define `static componentName: string`
 ```typescript
 import { Component } from '@mangoweb/scripts-base'
 
@@ -54,7 +54,7 @@ interface MyComponentData {
 }
 
 export class MyComponent extends Component<MyComponentData> {
-	public static displayName = 'MyComponent'
+	public static componentName = 'MyComponent'
 
 	protected getListeners = (): EventListeners => [
 		['click', this.handleClick],
