@@ -1,4 +1,12 @@
-import { matchesSelector } from '../utils'
+import {
+	ComponentEl,
+	DelegateEvent,
+	DelegateTarget,
+	EventListeners,
+	EventMap,
+	EventMapByElement,
+} from './componentTypes'
+import { matchesSelector } from './utils'
 
 export interface NamedComponent {
 	componentName: string
@@ -25,7 +33,7 @@ export class Component<D = {}, E extends ComponentEl = HTMLElement, EMap extends
 
 	protected getChild<C extends DelegateTarget<E>>(
 		selector: string,
-		ChildConstructor: Constructor<C>,
+		ChildConstructor: new (...args: any[]) => C,
 		parent: HTMLElement | SVGElement = this.el as HTMLElement | SVGElement
 	): C {
 		const child = parent.querySelector(selector)

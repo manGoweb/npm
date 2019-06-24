@@ -1,4 +1,3 @@
-export * from './Component'
 export * from './Emitter'
 export * from './Example'
 export * from './InView'

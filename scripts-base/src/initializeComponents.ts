@@ -1,4 +1,4 @@
-import { Component, ComponentConstructor, ComponentInitializationError } from './components'
+import { Component, ComponentConstructor, ComponentInitializationError } from './Component'
 
 export const initializeComponents = (
 	components: Array<ComponentConstructor<any, any, any>>,
