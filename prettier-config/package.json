@@ -1,0 +1,24 @@
+{
+  "name": "@mangoweb/prettier-config",
+  "version": "0.0.0",
+  "description": "The manGoweb Prettier config",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/manGoweb/npm/tree/master/prettier-config"
+  },
+  "author": "manGoweb <info@mangoweb.cz> (https://mangoweb.cz)",
+  "license": "MIT",
+  "dependencies": {
+    "prettier": "^1.17.0"
+  },
+  "peerDependencies": {
+    "prettier": ">= 1.17.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
