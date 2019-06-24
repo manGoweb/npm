@@ -39,8 +39,8 @@ Optionally, also add these to your `package.json`:
 ```json
 {
     "scripts": {
-        "eslint:lint": "eslint \"**/*.{ts,tsx}\" ",
-        "eslint:fix": "eslint --fix \"**/*.{ts,tsx}\" "
+        "eslint:lint": "eslint \"src/**/*.{ts,tsx}\" ",
+        "eslint:fix": "eslint --fix \"src/**/*.{ts,tsx}\" "
     }
 }
 ```
