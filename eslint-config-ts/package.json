@@ -1,0 +1,39 @@
+{
+  "name": "@mangoweb/eslint-config-ts",
+  "version": "0.0.0",
+  "description": "ESLint configuration using Prettier designed for TS.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/manGoweb/npm/tree/master/eslint-config-ts"
+  },
+  "author": "manGoweb <info@mangoweb.cz> (https://mangoweb.cz)",
+  "license": "MIT",
+  "dependencies": {
+    "@typescript-eslint/eslint-plugin": "^1.9.0",
+    "@typescript-eslint/parser": "^1.9.0",
+    "eslint": "^5.16.0",
+    "eslint-config-prettier": "^4.3.0",
+    "eslint-plugin-prettier": "^3.1.0",
+    "eslint-plugin-react": "^7.13.0",
+    "eslint-plugin-react-hooks": "^1.6.0",
+    "prettier": "^1.17.0",
+    "typescript": "^3.5.1"
+  },
+  "peerDependencies": {
+    "@typescript-eslint/eslint-plugin": ">= 1.9.0",
+    "@typescript-eslint/parser": ">= 1.9.0",
+    "eslint": ">= 5.16.0",
+    "eslint-config-prettier": ">= 4.3.0",
+    "eslint-plugin-prettier": ">= 3.1.0",
+    "eslint-plugin-react": ">= 7.13.0",
+    "eslint-plugin-react-hooks": ">= 1.6.0",
+    "prettier": ">= 1.17.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
