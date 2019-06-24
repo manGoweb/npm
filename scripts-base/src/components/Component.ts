@@ -4,23 +4,18 @@ export interface NamedComponent {
 	componentName: string
 }
 
+export type ComponentConstructor<
+	D,
+	E extends ComponentEl,
+	EMap extends EventMap = EventMapByElement<E>
+> = NamedComponent & (new (element: E, data: D) => Component<D, E, EMap>)
 
-export type ComponentConstructor<D, E extends ComponentEl, EMap extends EventMap = EventMapByElement<E>> =
-	NamedComponent
-	&
-	(new (element: E, data: D) => Component<D, E, EMap>)
-
-export class ComponentInitializationError extends Error {
-}
+export class ComponentInitializationError extends Error {}
 
 export class Component<D = {}, E extends ComponentEl = HTMLElement, EMap extends EventMap = EventMapByElement<E>> {
-
 	protected readonly getListeners = (): EventListeners<E, EMap> => []
 
-	constructor(
-		protected readonly el: E,
-		protected readonly data: D) {
-	}
+	constructor(protected readonly el: E, protected readonly data: D) {}
 
 	public setup() {
 		this.attachListeners()
@@ -51,8 +46,7 @@ export class Component<D = {}, E extends ComponentEl = HTMLElement, EMap extends
 		return this.data[prop] === undefined ? defaultValue : (this.data[prop] as Exclude<D[N], undefined>)
 	}
 
-	public init() {
-	}
+	public init() {}
 
 	private attachListeners() {
 		const listeners = this.getListeners()
@@ -63,7 +57,7 @@ export class Component<D = {}, E extends ComponentEl = HTMLElement, EMap extends
 			if (listenersSpec.length === 2) {
 				// EventListenerSpec
 				const type = listenersSpec[0] as string
-				const callback = listenersSpec[1].bind(this) as CallableFunction as (evt: Event) => void
+				const callback = (listenersSpec[1].bind(this) as CallableFunction) as (evt: Event) => void
 
 				this.el.addEventListener(type, callback, false)
 			} else {
@@ -77,10 +71,10 @@ export class Component<D = {}, E extends ComponentEl = HTMLElement, EMap extends
 
 						while (target && target !== this.el && target instanceof Element) {
 							if (matchesSelector(target, delegateSelector)) {
-								const delegateEvent = e as unknown as DelegateEvent<typeof type, E, EMap>
+								const delegateEvent = (e as unknown) as DelegateEvent<typeof type, E, EMap>
 								delegateEvent.delegateTarget = target as DelegateTarget<E>
 
-								return (callback).call(this, delegateEvent)
+								return callback.call(this, delegateEvent)
 							}
 
 							target = target.parentElement

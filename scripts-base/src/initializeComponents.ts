@@ -1,4 +1,4 @@
-import { Component, ComponentConstructor, ComponentInitializationError, } from './components'
+import { Component, ComponentConstructor, ComponentInitializationError } from './components'
 
 export const initializeComponents = (
 	components: Array<ComponentConstructor<any, any, any>>,
@@ -27,9 +27,7 @@ export const initializeComponents = (
 			const Component = componentsByName[component.name] // class
 
 			const placement =
-				typeof component.place === 'string'
-					? document.querySelector(component.place)
-					: component.place || document.body
+				typeof component.place === 'string' ? document.querySelector(component.place) : component.place || document.body
 
 			if (placement) {
 				try {
@@ -43,17 +41,13 @@ export const initializeComponents = (
 				}
 			} else if (DEBUG) {
 				console.warn(
-					`Trying to initialize component '${component.name}' but its selector '${
-						component.place
-						}' was not found`
+					`Trying to initialize component '${component.name}' but its selector '${component.place}' was not found`
 				)
 			}
 
 			if (DEBUG) {
 				const componentEndTime = performance.now()
-				console.log(
-					`\tComponent: ${component.name}: ${Math.round(componentEndTime - componentStartTime)}ms`
-				)
+				console.log(`\tComponent: ${component.name}: ${Math.round(componentEndTime - componentStartTime)}ms`)
 			}
 		} else if (DEBUG) {
 			console.warn(`Component with name ${component.name} was not found!`)

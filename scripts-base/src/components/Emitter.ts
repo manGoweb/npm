@@ -29,7 +29,7 @@ export class Emitter extends Component<EmitterData> {
 	private handleClick(e: MouseEvent) {
 		e.preventDefault()
 
-		this.events.map((eventType) => {
+		this.events.map(eventType => {
 			const event = document.createEvent('Event')
 
 			event.initEvent(eventType, true, true)

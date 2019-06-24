@@ -19,9 +19,7 @@ export class Example extends Component<ExampleData> {
 
 	private handleDelegateClick(e: DelegateEvent<'click'>): void {
 		console.log(e.delegateTarget)
-		alert(
-			`Hello, ${this.data.name}! The number of the day is ${this.data.numberOfTheDay.toFixed(0)}.`
-		)
+		alert(`Hello, ${this.data.name}! The number of the day is ${this.data.numberOfTheDay.toFixed(0)}.`)
 	}
 
 	private handleClick(e: MouseEvent): void {

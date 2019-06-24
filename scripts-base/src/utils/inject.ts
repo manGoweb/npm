@@ -29,7 +29,7 @@ export const inject = (
 				const keyCast = key as keyof ScriptElementConfig
 
 				if (options[keyCast] !== undefined) {
-					(script as any)[keyCast] = options[keyCast]
+					;(script as any)[keyCast] = options[keyCast]
 				}
 			}
 		}
