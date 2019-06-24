@@ -6,7 +6,9 @@
   "types": "lib/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc"
+    "build": "tsc",
+    "eslint:lint": "eslint \"src/**/*.{ts,tsx}\" ",
+    "eslint:fix": "eslint --fix \"src/**/*.{ts,tsx}\" "
   },
   "repository": {
     "type": "git",
@@ -15,6 +17,16 @@
   "author": "manGoweb <info@mangoweb.cz> (https://mangoweb.cz)",
   "license": "MIT",
   "devDependencies": {
+    "@mangoweb/eslint-config-ts": "^0.0.0",
+    "@mangoweb/prettier-config": "^0.0.0",
+    "@typescript-eslint/eslint-plugin": "^1.9.0",
+    "@typescript-eslint/parser": "^1.9.0",
+    "eslint": "^5.16.0",
+    "eslint-config-prettier": "^5.0.0",
+    "eslint-plugin-prettier": "^3.1.0",
+    "eslint-plugin-react": "^7.13.0",
+    "eslint-plugin-react-hooks": "^1.6.0",
+    "prettier": "^1.17.0",
     "typescript": "^3.5.1"
   },
   "prepare": "npm run build",
