@@ -1,7 +1,7 @@
 import { Component, ComponentConstructor, ComponentInitializationError, } from './components'
 
 export const initializeComponents = (
-	components: Array<ComponentConstructor<any, any>>,
+	components: Array<ComponentConstructor<any, any, any>>,
 	initializerName: ComponentInitializerName = 'initComponents'
 ) => {
 	const componentsByName: {
