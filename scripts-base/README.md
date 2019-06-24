@@ -47,7 +47,7 @@ You must:
 - Inherit from `Component`
 - Define `static componentName: string`
 ```typescript
-import { Component } from '@mangoweb/scripts-base'
+import { Component, DelegateEvent, EventListeners } from '@mangoweb/scripts-base'
 
 interface MyComponentData {
 	foo: number
@@ -74,6 +74,17 @@ export class MyComponent extends Component<MyComponentData> {
 	}
 }
 ```
+
+The `Component` superclass accepts up to three generic parameters, all of which are optional. The first one, the
+structure of `data`, defaults to `{}`. The second one is the type of `el`. It defaults to `HTMLElement` but is useful
+to change when we want to assert that it is something else (e.g. `Window`, `HTMLBodyElement`, `SVGElement`, etc.).
+
+The last parameter should only be necessary to change in very extreme situations. It is the map from supported event
+types to their respective `Event` objects. It should be inferred from the type of `el`, although it may be necessary
+to change, should the standard library prove to be incomplete.
+
+The `EventListeners` return type of `getListeners` optionally accepts the same two parameters as the last two of
+`Components`. It may be necessary to specify one or both if inference fails.
 
 #### Life-cycle methods
 The following happens to your component during initialization (in that order):

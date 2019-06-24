@@ -1,4 +1,5 @@
-import { Component } from './Component'
+import { Component } from '../Component'
+import { DelegateEvent, EventListeners } from '../componentTypes'
 
 interface ExampleData {
 	name: string

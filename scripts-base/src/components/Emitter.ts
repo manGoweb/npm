@@ -1,4 +1,5 @@
-import { Component } from './Component'
+import { EventListeners } from '../componentTypes'
+import { Component } from '../Component'
 
 type EventType = string
 type Events = Array<EventType>

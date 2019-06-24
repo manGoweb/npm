@@ -1,6 +1,6 @@
-type ComponentEl = HTMLElement | SVGElement | Window
+export type ComponentEl = HTMLElement | SVGElement | Window
 
-type EventMapByElement<E> = E extends Window
+export type EventMapByElement<E> = E extends Window
 	? WindowEventMap
 	: E extends SVGElement
 	? SVGElementEventMap
@@ -14,7 +14,7 @@ type EventMapByElement<E> = E extends Window
 	? HTMLElementEventMap
 	: never
 
-type DelegateTarget<Container extends ComponentEl> = Container extends Window
+export type DelegateTarget<Container extends ComponentEl> = Container extends Window
 	? HTMLElement | SVGElement
 	: Container extends SVGElement
 	? SVGElement
@@ -22,7 +22,7 @@ type DelegateTarget<Container extends ComponentEl> = Container extends Window
 	? HTMLElement | SVGElement
 	: never
 
-type EventMap =
+export type EventMap =
 	| WindowEventMap
 	| SVGElementEventMap
 	| HTMLBodyElementEventMap
@@ -30,7 +30,7 @@ type EventMap =
 	| HTMLMediaElementEventMap
 	| HTMLElementEventMap
 
-type NonBubblingEventType =
+export type NonBubblingEventType =
 	| 'abort'
 	| 'blur'
 	| 'error'
@@ -41,9 +41,9 @@ type NonBubblingEventType =
 	| 'progress'
 	| 'scroll'
 
-type BubblingEventType<EMap extends EventMap> = Exclude<keyof EMap, NonBubblingEventType>
+export type BubblingEventType<EMap extends EventMap> = Exclude<keyof EMap, NonBubblingEventType>
 
-type DelegateEvent<
+export type DelegateEvent<
 	E extends BubblingEventType<EMap>,
 	Container extends ComponentEl = HTMLElement,
 	EMap extends EventMap = EventMapByElement<Container>
@@ -51,28 +51,26 @@ type DelegateEvent<
 	delegateTarget: DelegateTarget<Container>
 }
 
-type DelegateEventListenerCallback<
+export type DelegateEventListenerCallback<
 	E extends BubblingEventType<EMap>,
-	Container extends ComponentEl,
-	EMap extends EventMap
+	Container extends ComponentEl = HTMLElement,
+	EMap extends EventMap = EventMapByElement<Container>
 > = (event: DelegateEvent<E, Container, EMap>) => void
 
-type DelegateEventListenerSpec<
+export type DelegateEventListenerSpec<
 	E extends BubblingEventType<EMap>,
-	Container extends ComponentEl,
-	EMap extends EventMap
+	Container extends ComponentEl = HTMLElement,
+	EMap extends EventMap = EventMapByElement<Container>
 > = [E, string, DelegateEventListenerCallback<E, Container, EMap>]
 
-type EventListenerCallback<E extends keyof EMap, EMap extends EventMap> = (event: EMap[E]) => void
+export type EventListenerCallback<E extends keyof EMap, EMap extends EventMap> = (event: EMap[E]) => void
 
-type EventListenerSpec<E extends keyof EMap, EMap extends EventMap> = [E, EventListenerCallback<E, EMap>]
+export type EventListenerSpec<E extends keyof EMap, EMap extends EventMap> = [E, EventListenerCallback<E, EMap>]
 
-type EventListeners<
+export type EventListeners<
 	Container extends ComponentEl = HTMLElement,
 	EMap extends EventMap = EventMapByElement<Container>
 > = Array<
 	| { [E in keyof EMap]: EventListenerSpec<E, EMap> }[keyof EMap]
 	| { [E in BubblingEventType<EMap>]: DelegateEventListenerSpec<E, Container, EMap> }[BubblingEventType<EMap>]
 >
-
-type Constructor<T> = new (...args: any[]) => T

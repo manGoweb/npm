@@ -1,10 +1,10 @@
-declare const DEBUG: boolean
-
 interface ComponentDefinition {
 	name: string
 	place?: keyof HTMLElementTagNameMap | HTMLElement
 	data?: any
 }
+
+declare const DEBUG: boolean
 
 type ComponentInitializer =
 	| Array<ComponentDefinition>
