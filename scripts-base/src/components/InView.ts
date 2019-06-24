@@ -38,19 +38,15 @@ export class InView extends Component<InViewData> {
 
 	private observerInit() {
 		const observer = new IntersectionObserver(
-			(entries) => {
+			entries => {
 				//callback
-				entries.forEach((entry) => {
+				entries.forEach(entry => {
 					if (!entry.rootBounds) {
 						return
 					}
 					const target = entry.target
 					const intersectionRatio = entry.intersectionRatio
-					this._updateState(
-						target,
-						intersectionRatio,
-						entry.boundingClientRect.top < entry.rootBounds.height / 2
-					)
+					this._updateState(target, intersectionRatio, entry.boundingClientRect.top < entry.rootBounds.height / 2)
 				})
 			},
 			{
@@ -74,14 +70,9 @@ export class InView extends Component<InViewData> {
 					const intersectionArea =
 						Math.max(
 							0,
-							Math.min(targetRect.left + targetRect.width, window.innerWidth) -
-								Math.max(targetRect.left, 0)
+							Math.min(targetRect.left + targetRect.width, window.innerWidth) - Math.max(targetRect.left, 0)
 						) * // width
-						Math.max(
-							0,
-							Math.min(targetRect.top + targetRect.height, window.innerHeight) -
-								Math.max(targetRect.top, 0)
-						) // height
+						Math.max(0, Math.min(targetRect.top + targetRect.height, window.innerHeight) - Math.max(targetRect.top, 0)) // height
 					const intersectionRatio = intersectionArea / targetArea
 					this._updateState(target, intersectionRatio, targetRect.top < window.innerHeight / 2)
 				}
@@ -93,15 +84,12 @@ export class InView extends Component<InViewData> {
 	_updateState(target: any, intersectionRatio: number, targetTopAboveViewCenter: boolean) {
 		const hasTopClassThreshold: boolean = target.classList.contains(this.CLASSES.topThreshold)
 		const hasBottomClassThreshold: boolean = target.classList.contains(this.CLASSES.bottomThreshold)
-		const strictTop =
-			this.data.hasOwnProperty('detectOnce') && this.data.strictTop ? this.threshold : 0
+		const strictTop = this.data.hasOwnProperty('detectOnce') && this.data.strictTop ? this.threshold : 0
 		const topThreshold = hasTopClassThreshold ? strictTop : this.threshold
 		const isTop =
-			(this.detectOnce && hasTopClassThreshold) ||
-			(intersectionRatio > topThreshold || targetTopAboveViewCenter)
+			(this.detectOnce && hasTopClassThreshold) || (intersectionRatio > topThreshold || targetTopAboveViewCenter)
 		const isBottom =
-			(this.detectOnce && hasBottomClassThreshold) ||
-			(intersectionRatio <= this.threshold && targetTopAboveViewCenter)
+			(this.detectOnce && hasBottomClassThreshold) || (intersectionRatio <= this.threshold && targetTopAboveViewCenter)
 		target.classList.toggle(this.CLASSES.topThreshold, isTop)
 		target.classList.toggle(this.CLASSES.bottomThreshold, isBottom)
 		if (this.data.afterUpdate) {
