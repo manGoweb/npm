@@ -4,18 +4,23 @@ export interface NamedComponent {
 	componentName: string
 }
 
-export type ComponentConstructor<D, E extends HTMLElement> = NamedComponent &
-	(new (element: E, data: D) => Component<D, E>)
 
-export class ComponentInitializationError extends Error {}
+export type ComponentConstructor<D, E extends ComponentEl, EMap extends EventMap = EventMapByElement<E>> =
+	NamedComponent
+	&
+	(new (element: E, data: D) => Component<D, E, EMap>)
 
-export class Component<D = {}, E extends HTMLElement = HTMLElement> {
+export class ComponentInitializationError extends Error {
+}
 
-	protected getListeners = (): EventListeners => []
+export class Component<D = {}, E extends ComponentEl = HTMLElement, EMap extends EventMap = EventMapByElement<E>> {
+
+	protected readonly getListeners = (): EventListeners<E, EMap> => []
 
 	constructor(
 		protected readonly el: E,
-		protected readonly data: D) {}
+		protected readonly data: D) {
+	}
 
 	public setup() {
 		this.attachListeners()
@@ -23,10 +28,10 @@ export class Component<D = {}, E extends HTMLElement = HTMLElement> {
 		this.init()
 	}
 
-	protected getChild<C extends HTMLElement>(
+	protected getChild<C extends DelegateTarget<E>>(
 		selector: string,
 		ChildConstructor: Constructor<C>,
-		parent: HTMLElement = this.el
+		parent: HTMLElement | SVGElement = this.el as HTMLElement | SVGElement
 	): C {
 		const child = parent.querySelector(selector)
 
@@ -38,7 +43,7 @@ export class Component<D = {}, E extends HTMLElement = HTMLElement> {
 		return child
 	}
 
-	protected getChildren<C extends HTMLElement>(selector: string, parent: HTMLElement = this.el) {
+	protected getChildren<C extends DelegateTarget<E>>(selector: string, parent = this.el as HTMLElement | SVGElement) {
 		return parent.querySelectorAll(selector) as NodeListOf<C>
 	}
 
@@ -46,7 +51,8 @@ export class Component<D = {}, E extends HTMLElement = HTMLElement> {
 		return this.data[prop] === undefined ? defaultValue : (this.data[prop] as Exclude<D[N], undefined>)
 	}
 
-	public init() {}
+	public init() {
+	}
 
 	private attachListeners() {
 		const listeners = this.getListeners()
@@ -56,29 +62,25 @@ export class Component<D = {}, E extends HTMLElement = HTMLElement> {
 
 			if (listenersSpec.length === 2) {
 				// EventListenerSpec
-				const [type, callback] = listenersSpec
+				const type = listenersSpec[0] as string
+				const callback = listenersSpec[1].bind(this) as CallableFunction as (evt: Event) => void
 
-				this.el.addEventListener<typeof type>(type, callback.bind(this) as EventListenerCallback<typeof type>, false)
+				this.el.addEventListener(type, callback, false)
 			} else {
 				// DelegateEventListenerSpec
 				const [type, delegateSelector, callback] = listenersSpec
 
 				this.el.addEventListener(
-					type,
-					(e: HTMLElementEventMap[typeof type]) => {
+					type as string,
+					(e: Event) => {
 						let target = e.target
 
-						while (target && target instanceof HTMLElement && target !== this.el) {
+						while (target && target !== this.el && target instanceof Element) {
 							if (matchesSelector(target, delegateSelector)) {
-								const delegateEvent: HTMLElementEventMap[typeof type] & {
-									delegateTarget?: HTMLElement
-								} = e
-								delegateEvent.delegateTarget = target
+								const delegateEvent = e as unknown as DelegateEvent<typeof type, E, EMap>
+								delegateEvent.delegateTarget = target as DelegateTarget<E>
 
-								return (callback as DelegateEventListenerCallback<typeof type>).call(
-									this,
-									delegateEvent as DelegateEvent<typeof type>
-								)
+								return (callback).call(this, delegateEvent)
 							}
 
 							target = target.parentElement
