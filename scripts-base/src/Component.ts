@@ -49,18 +49,18 @@ export class Component<
 		return child
 	}
 
-	protected getChildren<C extends DelegateTarget<ComponentElement>>(
+	protected getChildren<Children extends DelegateTarget<ComponentElement>>(
 		selector: string,
 		parent = this.el as HTMLElement | SVGElement
 	) {
-		return parent.querySelectorAll(selector) as NodeListOf<C>
+		return parent.querySelectorAll(selector) as NodeListOf<Children>
 	}
 
-	protected getProp<N extends keyof Data>(
-		prop: N,
-		defaultValue: Exclude<Data[N], undefined>
-	): Exclude<Data[N], undefined> {
-		return this.data[prop] === undefined ? defaultValue : (this.data[prop] as Exclude<Data[N], undefined>)
+	protected getProp<PropName extends keyof Data>(
+		prop: PropName,
+		defaultValue: Exclude<Data[PropName], undefined>
+	): Exclude<Data[PropName], undefined> {
+		return this.data[prop] === undefined ? defaultValue : (this.data[prop] as Exclude<Data[PropName], undefined>)
 	}
 
 	public init() {}
