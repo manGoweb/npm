@@ -2,17 +2,15 @@ export type ComponentEl = HTMLElement | SVGElement | Window
 
 export type EventMapByElement<E> = E extends Window
 	? WindowEventMap
-	: E extends SVGElement
-	? SVGElementEventMap
-	: E extends HTMLBodyElement
-	? HTMLBodyElementEventMap
-	: E extends HTMLVideoElement
-	? HTMLVideoElementEventMap
-	: E extends HTMLAudioElement
-	? HTMLMediaElementEventMap
-	: E extends HTMLElement
-	? HTMLElementEventMap
-	: never
+	: (E extends SVGElement
+			? SVGElementEventMap
+			: (E extends HTMLBodyElement
+					? HTMLBodyElementEventMap
+					: (E extends HTMLVideoElement
+							? HTMLVideoElementEventMap
+							: (E extends HTMLAudioElement
+									? HTMLMediaElementEventMap
+									: (E extends HTMLElement ? HTMLElementEventMap : never)))))
 
 export type DelegateTarget<Container extends ComponentEl> = Container extends Window
 	? HTMLElement | SVGElement
