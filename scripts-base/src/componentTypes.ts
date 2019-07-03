@@ -1,6 +1,6 @@
 export type ComponentEl = HTMLElement | SVGElement | Window
 
-export type EventMapByElement<E> = E extends Window
+export type EventMapByElement<E extends ComponentEl> = E extends Window
 	? WindowEventMap
 	: (E extends SVGElement
 			? SVGElementEventMap

@@ -1,11 +1,12 @@
-import { Component, ComponentConstructor, ComponentInitializationError } from './Component'
+import { ComponentConstructor, ComponentInitializationError } from './Component'
+import { ComponentEl } from './componentTypes'
 
 export const initializeComponents = (
-	components: Array<ComponentConstructor<any, any, any>>,
+	components: Array<ComponentConstructor<unknown, ComponentEl>>,
 	initializerName: ComponentInitializerName = 'initComponents'
 ) => {
 	const componentsByName: {
-		[name: string]: typeof Component
+		[name: string]: ComponentConstructor<unknown, ComponentEl>
 	} = {}
 
 	for (let i = 0, length = components.length; i < length; i++) {

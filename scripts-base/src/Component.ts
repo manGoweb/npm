@@ -8,15 +8,14 @@ import {
 } from './componentTypes'
 import { matchesSelector } from './utils'
 
-export interface NamedComponent {
-	componentName: string
-}
-
-export type ComponentConstructor<
+export interface ComponentConstructor<
 	Data,
 	ComponentElement extends ComponentEl,
 	EMap extends EventMap = EventMapByElement<ComponentElement>
-> = NamedComponent & (new (element: ComponentElement, data: Data) => Component<Data, ComponentElement, EMap>)
+> {
+	componentName: string
+	new (element: ComponentElement, data: Data): Component<Data, ComponentElement, EMap>
+}
 
 export class ComponentInitializationError extends Error {}
 
