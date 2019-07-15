@@ -32,7 +32,7 @@ export const initializeComponents = (
 
 			if (placement) {
 				try {
-					const instance = new Component(placement, component.data || {})
+					const instance = new Component(placement, component.props || {})
 
 					instance.setup()
 				} catch (e) {

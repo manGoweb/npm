@@ -1,6 +1,6 @@
 import { Component } from '../Component'
 
-export interface ShapesData {
+export interface ShapesProps {
 	url: string
 }
 
@@ -9,7 +9,7 @@ export interface ShapesData {
  *
  * - injects SVG sprite into body
  */
-export class Shapes extends Component<ShapesData> {
+export class Shapes extends Component<ShapesProps> {
 	static componentName = 'Shapes'
 
 	init() {
@@ -18,7 +18,7 @@ export class Shapes extends Component<ShapesData> {
 	}
 
 	injectSprite(): void {
-		fetch(this.data.url)
+		fetch(this.props.url)
 			.then((response: Response) => {
 				if (!response.ok) {
 					throw new Error(response.statusText)
