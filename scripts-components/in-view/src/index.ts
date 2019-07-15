@@ -51,16 +51,10 @@ export class InView extends Component<InViewData> {
 			this.options
 		)
 
-		isOutOfView(
-			this.targets,
-			(target, details) => {
-				this.togglePositionClasses(target, details)
-			},
-			this.options
-		)
+		isOutOfView(this.targets, this.togglePositionClasses, this.options)
 	}
 
-	private togglePositionClasses(target: Element, details: IsInView.Details) {
+	private togglePositionClasses = (target: Element, details: IsInView.Details) => {
 		this.toggleClass(target, this.isAboveViewClass, details.isAboveView)
 		this.toggleClass(target, this.isInViewClass, details.isInView)
 		this.toggleClass(target, this.isBelowViewClass, details.isBelowView)
