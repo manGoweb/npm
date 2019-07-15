@@ -46,23 +46,23 @@ export class InView extends Component<InViewData> {
 			this.targets,
 			(target, details) => {
 				target.classList.add(this.isSeenClass)
-				this.togglePositionClasses(target, details)
+				this.updatePositionClasses(target, details)
 			},
 			this.options
 		)
 
-		isOutOfView(this.targets, this.togglePositionClasses, this.options)
+		isOutOfView(this.targets, this.updatePositionClasses, this.options)
 	}
 
-	protected togglePositionClasses = (target: Element, details: IsInView.Details) => {
-		this.toggleClass(target, this.isAboveViewClass, details.isAboveView)
-		this.toggleClass(target, this.isInViewClass, details.isInView)
-		this.toggleClass(target, this.isBelowViewClass, details.isBelowView)
+	protected updatePositionClasses = (target: Element, details: IsInView.Details) => {
+		this.updateClass(target, this.isAboveViewClass, details.isAboveView)
+		this.updateClass(target, this.isInViewClass, details.isInView)
+		this.updateClass(target, this.isBelowViewClass, details.isBelowView)
 	}
 
-	protected toggleClass(target: Element, className: string, force: boolean) {
+	protected updateClass(target: Element, className: string, present: boolean) {
 		if (className) {
-			if (force) {
+			if (present) {
 				target.classList.add(className)
 			} else {
 				target.classList.remove(className)
