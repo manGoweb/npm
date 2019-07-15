@@ -22,23 +22,23 @@ export class InView extends Component<InViewData> {
 	protected readonly isBelowViewClass: string
 	protected readonly isSeenClass: string
 
-	public constructor(el: HTMLElement, data: InViewData) {
-		super(el, data)
+	public constructor(el: HTMLElement, props: InViewData) {
+		super(el, props)
 
 		if (!isSupported()) {
 			throw new ComponentInitializationError('InView component not supported. Add IntersectionObserver polyfill.')
 		}
 
-		this.targets = this.data.targets ? this.getChildren(this.data.targets) : this.el
+		this.targets = this.props.targets ? this.getChildren(this.props.targets) : this.el
 
-		if (this.data.threshold) {
-			this.options.threshold = this.data.threshold
+		if (this.props.threshold) {
+			this.options.threshold = this.props.threshold
 		}
 
-		this.isAboveViewClass = this.getProp('isAboveViewClass', 'is-aboveView')
-		this.isInViewClass = this.getProp('isInViewClass', 'is-inView')
-		this.isBelowViewClass = this.getProp('isBelowViewClass', 'is-belowView')
-		this.isSeenClass = this.getProp('isSeenClass', 'is-seen')
+		this.isAboveViewClass = this.getPropOrElse('isAboveViewClass', 'is-aboveView')
+		this.isInViewClass = this.getPropOrElse('isInViewClass', 'is-inView')
+		this.isBelowViewClass = this.getPropOrElse('isBelowViewClass', 'is-belowView')
+		this.isSeenClass = this.getPropOrElse('isSeenClass', 'is-seen')
 	}
 
 	public init() {
