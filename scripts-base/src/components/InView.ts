@@ -1,6 +1,6 @@
 import { Component } from '../Component'
 
-interface InViewData {
+interface InViewProps {
 	targets?: string
 	threshold?: number
 	detectOnce?: boolean
@@ -8,7 +8,7 @@ interface InViewData {
 	afterUpdate: (isTop: boolean, isBottom: boolean) => void
 }
 
-export class InView extends Component<InViewData> {
+export class InView extends Component<InViewProps> {
 	static componentName = 'InView'
 
 	private readonly targets: NodeListOf<Element> | HTMLElement[]
@@ -21,13 +21,13 @@ export class InView extends Component<InViewData> {
 		bottomThreshold: 'view-bottomThreshold',
 	} as const
 
-	public constructor(el: HTMLElement, data: InViewData) {
-		super(el, data)
+	public constructor(el: HTMLElement, props: InViewProps) {
+		super(el, props)
 
-		this.targets = data.targets ? this.el.querySelectorAll(data.targets) : [this.el]
-		this.threshold = this.getProp('threshold', 0)
-		this.detectOnce = this.getProp('detectOnce', true)
-		this.strictTop = this.getProp('strictTop', false)
+		this.targets = props.targets ? this.el.querySelectorAll(props.targets) : [this.el]
+		this.threshold = this.getPropOrElse('threshold', 0)
+		this.detectOnce = this.getPropOrElse('detectOnce', true)
+		this.strictTop = this.getPropOrElse('strictTop', false)
 
 		if ('IntersectionObserver' in window) {
 			this.observerInit()
@@ -84,7 +84,7 @@ export class InView extends Component<InViewData> {
 	_updateState(target: any, intersectionRatio: number, targetTopAboveViewCenter: boolean) {
 		const hasTopClassThreshold: boolean = target.classList.contains(this.CLASSES.topThreshold)
 		const hasBottomClassThreshold: boolean = target.classList.contains(this.CLASSES.bottomThreshold)
-		const strictTop = this.data.hasOwnProperty('detectOnce') && this.data.strictTop ? this.threshold : 0
+		const strictTop = this.props.hasOwnProperty('detectOnce') && this.props.strictTop ? this.threshold : 0
 		const topThreshold = hasTopClassThreshold ? strictTop : this.threshold
 		const isTop =
 			(this.detectOnce && hasTopClassThreshold) || (intersectionRatio > topThreshold || targetTopAboveViewCenter)
@@ -92,8 +92,8 @@ export class InView extends Component<InViewData> {
 			(this.detectOnce && hasBottomClassThreshold) || (intersectionRatio <= this.threshold && targetTopAboveViewCenter)
 		target.classList.toggle(this.CLASSES.topThreshold, isTop)
 		target.classList.toggle(this.CLASSES.bottomThreshold, isBottom)
-		if (this.data.afterUpdate) {
-			this.data.afterUpdate(isTop, isBottom)
+		if (this.props.afterUpdate) {
+			this.props.afterUpdate(isTop, isBottom)
 		}
 	}
 }

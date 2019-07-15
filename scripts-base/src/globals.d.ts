@@ -1,7 +1,7 @@
 interface ComponentDefinition {
 	name: string
 	place?: keyof HTMLElementTagNameMap | HTMLElement
-	data?: any
+	props?: any
 }
 
 declare const DEBUG: boolean

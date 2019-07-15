@@ -9,24 +9,24 @@ import {
 import { matchesSelector } from './utils'
 
 export interface ComponentConstructor<
-	Data,
+	Props,
 	ComponentElement extends ComponentEl,
 	EMap extends EventMap = EventMapByElement<ComponentElement>
 > {
 	componentName: string
-	new (element: ComponentElement, data: Data): Component<Data, ComponentElement, EMap>
+	new (element: ComponentElement, props: Props): Component<Props, ComponentElement, EMap>
 }
 
 export class ComponentInitializationError extends Error {}
 
 export class Component<
-	Data = {},
+	Props = {},
 	ComponentElement extends ComponentEl = HTMLElement,
 	EMap extends EventMap = EventMapByElement<ComponentElement>
 > {
 	protected readonly getListeners = (): EventListeners<ComponentElement, EMap> => []
 
-	constructor(protected readonly el: ComponentElement, protected readonly data: Data) {}
+	constructor(protected readonly el: ComponentElement, protected readonly props: Props) {}
 
 	public setup() {
 		this.attachListeners()
@@ -55,11 +55,17 @@ export class Component<
 		return parent.querySelectorAll(selector) as NodeListOf<Children>
 	}
 
-	protected getProp<PropName extends keyof Data>(
-		prop: PropName,
-		defaultValue: Exclude<Data[PropName], undefined>
-	): Exclude<Data[PropName], undefined> {
-		return this.data[prop] === undefined ? defaultValue : (this.data[prop] as Exclude<Data[PropName], undefined>)
+	protected getProp<PropName extends keyof Props>(propName: PropName): Props[PropName] {
+		return this.props[propName]
+	}
+
+	protected getPropOrElse<PropName extends keyof Props>(
+		propName: PropName,
+		defaultValue: Exclude<Props[PropName], undefined>
+	): Exclude<Props[PropName], undefined> {
+		return this.props[propName] === undefined
+			? defaultValue
+			: (this.props[propName] as Exclude<Props[PropName], undefined>)
 	}
 
 	public init() {}

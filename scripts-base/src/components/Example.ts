@@ -1,12 +1,12 @@
 import { Component } from '../Component'
 import { DelegateEvent, EventListeners } from '../componentTypes'
 
-interface ExampleData {
+interface ExampleProps {
 	name: string
 	numberOfTheDay: number
 }
 
-export class Example extends Component<ExampleData> {
+export class Example extends Component<ExampleProps> {
 	static componentName = 'Example'
 
 	protected getListeners = (): EventListeners => [
@@ -15,12 +15,12 @@ export class Example extends Component<ExampleData> {
 	]
 
 	public init() {
-		this.getChild('.example-child', HTMLElement).innerText += ` ${this.data.name}!`
+		this.getChild('.example-child', HTMLElement).innerText += ` ${this.props.name}!`
 	}
 
 	private handleDelegateClick(e: DelegateEvent<'click'>): void {
 		console.log(e.delegateTarget)
-		alert(`Hello, ${this.data.name}! The number of the day is ${this.data.numberOfTheDay.toFixed(0)}.`)
+		alert(`Hello, ${this.props.name}! The number of the day is ${this.props.numberOfTheDay.toFixed(0)}.`)
 	}
 
 	private handleClick(e: MouseEvent): void {

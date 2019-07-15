@@ -4,7 +4,7 @@ import { Component } from '../Component'
 type EventType = string
 type Events = Array<EventType>
 
-export interface EmitterData {
+export interface EmitterProps {
 	events: EventType | Events
 }
 /**
@@ -12,11 +12,11 @@ export interface EmitterData {
  *
  * 	- emits given events on an element click
  *
- * Expects data = {
+ * Expects props = {
  * 		events: [ 'event', 'names', 'to', 'trigger' ] - array of events or just single string
  * }
  */
-export class Emitter extends Component<EmitterData> {
+export class Emitter extends Component<EmitterProps> {
 	static componentName = 'Emitter'
 
 	private events: Events = []
@@ -24,7 +24,7 @@ export class Emitter extends Component<EmitterData> {
 	protected getListeners = (): EventListeners => [['click', this.handleClick]]
 
 	public init() {
-		this.events = Array.isArray(this.data.events) ? this.data.events : [this.data.events]
+		this.events = Array.isArray(this.props.events) ? this.props.events : [this.props.events]
 	}
 
 	private handleClick(e: MouseEvent) {
