@@ -20,10 +20,10 @@ In your template:
 			targets: '.target', // Watched children
 			threshold: 0, // Area of a target required to be inside viewport
 
-			isAboveViewClass: 'isAboveViewClass', // Target element last seen above viewport
-			isInViewClass: 'isInViewClass', // Target last seen in viewport
-			isBelowViewClass: 'isBelowViewClass', // Target last seen below viewport
-			isSeenClass: 'isSeenClass', // Target seen in viewport at least once
+			isAboveViewClass: 'isAboveView', // Class added to a target element when seen above viewport
+			isInViewClass: 'isInView', // Target seen in viewport
+			isBelowViewClass: 'isBelowView', // Target seen below viewport
+			isSeenClass: 'isSeen', // Target seen in viewport at least once
 		}
 	})
 </script>
