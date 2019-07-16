@@ -36,7 +36,7 @@ export const initializeComponents = (
 
 					instance.setup()
 				} catch (e) {
-					if (e instanceof ComponentInitializationError && DEBUG) {
+					if (e instanceof ComponentInitializationError) {
 						console.warn(`The component '${component.name}' failed to initialize. ${e.message}`)
 					}
 				}
