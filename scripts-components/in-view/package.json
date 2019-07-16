@@ -1,7 +1,7 @@
 {
-  "name": "@mangoweb/scripts-base",
-  "version": "0.0.9",
-  "description": "Simple component model for small to medium sites. Usable from JS & TS.",
+  "name": "@mangoweb/in-view",
+  "version": "0.0.2",
+  "description": "Watches elements entering and leaving viewport.",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
@@ -33,5 +33,11 @@
   "prepare": "npm run build",
   "publishConfig": {
     "access": "public"
+  },
+  "dependencies": {
+    "isinview": "^2.1.0"
+  },
+  "peerDependencies": {
+    "@mangoweb/scripts-base": "0.0.8"
   }
 }

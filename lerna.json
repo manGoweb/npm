@@ -2,7 +2,8 @@
   "packages": [
     "packages/*",
     "sass-base",
-    "scripts-base"
+    "scripts-base",
+    "scripts-components/*"
   ],
   "version": "0.0.5"
 }

@@ -127,9 +127,10 @@ You can import these and use them via `initializeComponents` side by side with y
 
 ```typescript
 import { Shapes } from `@mangoweb/scripts-base`
+import { InView } from `@mangoweb/in-view`
 ```
 
 There are currently these:
-- `Emitter`
-- `InView`
-- `Shapes`
+- Emitter
+- [InView](https://www.npmjs.com/package/@mangoweb/in-view)
+- Shapes
