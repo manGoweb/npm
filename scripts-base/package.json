@@ -8,7 +8,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc",
     "eslint:lint": "eslint \"src/**/*.{ts,tsx}\" ",
-    "eslint:fix": "eslint --fix \"src/**/*.{ts,tsx}\" "
+    "eslint:fix": "eslint --fix \"src/**/*.{ts,tsx}\" ",
+    "prepublish": "npm run build"
   },
   "repository": {
     "type": "git",
