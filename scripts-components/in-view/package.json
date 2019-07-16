@@ -35,7 +35,7 @@
     "access": "public"
   },
   "dependencies": {
-    "isinview": "^2.0.4-0"
+    "isinview": "^2.1.0"
   },
   "peerDependencies": {
     "@mangoweb/scripts-base": "0.0.8"
