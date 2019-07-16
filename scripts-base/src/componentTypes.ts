@@ -30,6 +30,13 @@ export type EventMap =
 	| HTMLMediaElementEventMap
 	| HTMLElementEventMap
 
+export type CompleteEventMap = WindowEventMap &
+	SVGElementEventMap &
+	HTMLBodyElementEventMap &
+	HTMLVideoElementEventMap &
+	HTMLMediaElementEventMap &
+	HTMLElementEventMap
+
 export type NonBubblingEventType =
 	| 'abort'
 	| 'blur'

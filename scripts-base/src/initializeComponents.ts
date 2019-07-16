@@ -1,12 +1,12 @@
 import { ComponentConstructor, ComponentInitializationError } from './Component'
-import { ComponentEl } from './componentTypes'
+import { CompleteEventMap } from './componentTypes'
 
 export const initializeComponents = (
-	components: Array<ComponentConstructor<unknown, ComponentEl>>,
+	components: Array<ComponentConstructor<any, any, CompleteEventMap>>,
 	initializerName: ComponentInitializerName = 'initComponents'
 ) => {
 	const componentsByName: {
-		[name: string]: ComponentConstructor<unknown, ComponentEl>
+		[name: string]: ComponentConstructor<any, any, CompleteEventMap>
 	} = {}
 
 	for (let i = 0, length = components.length; i < length; i++) {
