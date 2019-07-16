@@ -1,5 +1,6 @@
 import {
 	ComponentEl,
+	DefaultComponentEl,
 	DelegateEvent,
 	DelegateTarget,
 	EventListeners,
@@ -21,7 +22,7 @@ export class ComponentInitializationError extends Error {}
 
 export class Component<
 	Props = {},
-	ComponentElement extends ComponentEl = HTMLElement,
+	ComponentElement extends ComponentEl = DefaultComponentEl,
 	EMap extends EventMap = EventMapByElement<ComponentElement>
 > {
 	protected readonly getListeners = (): EventListeners<ComponentElement, EMap> => []

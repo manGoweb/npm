@@ -1,5 +1,7 @@
 export type ComponentEl = HTMLElement | SVGElement | Window
 
+export type DefaultComponentEl = HTMLElement
+
 export type EventMapByElement<E extends ComponentEl> = E extends Window
 	? WindowEventMap
 	: (E extends SVGElement
@@ -28,6 +30,13 @@ export type EventMap =
 	| HTMLMediaElementEventMap
 	| HTMLElementEventMap
 
+export type CompleteEventMap = WindowEventMap &
+	SVGElementEventMap &
+	HTMLBodyElementEventMap &
+	HTMLVideoElementEventMap &
+	HTMLMediaElementEventMap &
+	HTMLElementEventMap
+
 export type NonBubblingEventType =
 	| 'abort'
 	| 'blur'
@@ -43,7 +52,7 @@ export type BubblingEventType<EMap extends EventMap> = Exclude<keyof EMap, NonBu
 
 export type DelegateEvent<
 	E extends BubblingEventType<EMap>,
-	Container extends ComponentEl = HTMLElement,
+	Container extends ComponentEl = DefaultComponentEl,
 	EMap extends EventMap = EventMapByElement<Container>
 > = EMap[E] & {
 	delegateTarget: DelegateTarget<Container>
@@ -51,13 +60,13 @@ export type DelegateEvent<
 
 export type DelegateEventListenerCallback<
 	E extends BubblingEventType<EMap>,
-	Container extends ComponentEl = HTMLElement,
+	Container extends ComponentEl = DefaultComponentEl,
 	EMap extends EventMap = EventMapByElement<Container>
 > = (event: DelegateEvent<E, Container, EMap>) => void
 
 export type DelegateEventListenerSpec<
 	E extends BubblingEventType<EMap>,
-	Container extends ComponentEl = HTMLElement,
+	Container extends ComponentEl = DefaultComponentEl,
 	EMap extends EventMap = EventMapByElement<Container>
 > = [E, string, DelegateEventListenerCallback<E, Container, EMap>]
 
@@ -66,7 +75,7 @@ export type EventListenerCallback<E extends keyof EMap, EMap extends EventMap> =
 export type EventListenerSpec<E extends keyof EMap, EMap extends EventMap> = [E, EventListenerCallback<E, EMap>]
 
 export type EventListeners<
-	Container extends ComponentEl = HTMLElement,
+	Container extends ComponentEl = DefaultComponentEl,
 	EMap extends EventMap = EventMapByElement<Container>
 > = Array<
 	| { [E in keyof EMap]: EventListenerSpec<E, EMap> }[keyof EMap]
