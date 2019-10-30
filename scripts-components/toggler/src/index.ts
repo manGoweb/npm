@@ -27,11 +27,12 @@ export default class Toggler extends Component<void> {
 		}
 
 		if (closeOthersTargets) {
-			closeOthersTargets.forEach((target) => {
+			for (let i = 0; i < closeOthersTargets.length; i++) {
+				const target = closeOthersTargets[i];
 				if (target !== toggleTarget) {
 					target.classList.remove(className)
 				}
-			})
+			}
 		}
 
 		if (toggleTarget) {
