@@ -128,9 +128,11 @@ You can import these and use them via `initializeComponents` side by side with y
 ```typescript
 import { Shapes } from `@mangoweb/scripts-base`
 import { InView } from `@mangoweb/in-view`
+import { Toggler } from `@mangoweb/toggler`
 ```
 
 There are currently these:
 - Emitter
 - [InView](https://www.npmjs.com/package/@mangoweb/in-view)
 - Shapes
+- [Toggler](https://www.npmjs.com/package/@mangoweb/toggler)
