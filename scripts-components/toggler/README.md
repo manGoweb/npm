@@ -1,6 +1,6 @@
 # Toggler
 
-The manGoweb Toggler component. Watches elements entering and leaving viewport.
+The manGoweb Toggler component. Toggles class on target element.
 
 ## Installation
 
@@ -19,3 +19,9 @@ In your template:
 	})
 </script>
 ```
+
+Use by adding following attributes to HTML element with 'toggler' class:
+* data-target - target selector
+* data-class-name - class to toggle
+* data-close-others - selector of elements to close
+* data-prevent-default - prevent default event behaviour
