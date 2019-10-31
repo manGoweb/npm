@@ -11,7 +11,7 @@ export default class Toggler extends Component<void> {
 	getListeners = (): EventListeners => [['click', '.toggler', this.handleClick]]
 
 	handleClick(e: DelegateEvent<'click'>) {
-		const delegateTarget = e.delegateTarget
+		const delegateTarget = e.delegateTarget as HTMLElement
 		const targetSelector = delegateTarget.dataset.target
 		const othersTargetSelector = delegateTarget.dataset.closeOthers
 		const toggleTarget = targetSelector ? document.querySelector(targetSelector) : delegateTarget

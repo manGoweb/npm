@@ -1,3 +1,9 @@
 {
-  "extends": "../../scripts-base/tsconfig.json"
+	"extends": "../../scripts-base/tsconfig.json",
+	"compilerOptions": {
+		"outDir": "./lib"
+	},
+	"include": [
+		"src"
+	]
 }

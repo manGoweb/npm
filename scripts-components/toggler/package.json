@@ -1,6 +1,6 @@
 {
   "name": "@mangoweb/toggler",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Toggles class based on data attributes",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
