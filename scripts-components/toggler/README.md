@@ -23,5 +23,5 @@ In your template:
 Use by adding following attributes to HTML element with 'toggler' class:
 * data-target - target selector
 * data-class-name - class to toggle
-* data-close-others - selector of elements to close
+* data-remove-others - remove toggle class from elements matching this selector
 * data-prevent-default - prevent default event behaviour
