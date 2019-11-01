@@ -1,6 +1,6 @@
 # `@mangoweb/scripts-base`
 
-The manGoweb template for scripts employed on small to medium sized projects. 
+The manGoweb template for scripts employed on small to medium sized projects.
 
 ## Installation
 
@@ -126,11 +126,13 @@ const isEnabled = this.getProp('isEnabled', true)
 You can import these and use them via `initializeComponents` side by side with your regular components (baring any potential naming conflicts):
 
 ```typescript
-import { Shapes } from `@mangoweb/scripts-base`
-import { InView } from `@mangoweb/in-view`
+import { Shapes } from '@mangoweb/scripts-base'
+import { InView } from '@mangoweb/in-view'
+import { Toggler } from '@mangoweb/toggler'
 ```
 
 There are currently these:
 - Emitter
 - [InView](https://www.npmjs.com/package/@mangoweb/in-view)
 - Shapes
+- [Toggler](https://www.npmjs.com/package/@mangoweb/toggler)
