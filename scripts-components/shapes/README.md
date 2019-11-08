@@ -14,12 +14,12 @@ In your template:
 
 ```html
 <script>
-  window.initComponents = (window.initComponents || []).push({
-    name: "Shapes",
-    props: {
-      url: "/shapes.svg"
-    }
-  });
+	window.initComponents = (window.initComponents || []).push({
+		name: 'Shapes',
+		props: {
+			url: '/shapes.svg',
+		},
+	})
 </script>
 ```
 
