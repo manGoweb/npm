@@ -23,6 +23,6 @@ In your template:
 </script>
 ```
 
-## IE support
+## IE support ([caniuse](https://caniuse.com/#feat=fetch))
 
 Use `fetch` polyfill, e.g., `<script src="https://polyfill.io/v3/polyfill.min.js?features=fetch"></script>`
