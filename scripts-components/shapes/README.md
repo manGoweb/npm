@@ -1,0 +1,24 @@
+# Shapes
+
+The manGoweb Shapes component.
+
+## Installation
+
+`$ npm install @mangoweb/shapes @mangoweb/scripts-base`
+
+This is a [`@mangoweb/scripts-base`](https://www.npmjs.com/package/@mangoweb/scripts-base) component.
+
+## Usage
+
+In your template:
+
+```html
+<script>
+  window.initComponents = (window.initComponents || []).push({
+    name: "Shapes",
+    props: {
+      url: "/shapes.svg"
+    }
+  });
+</script>
+```
