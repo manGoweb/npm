@@ -22,3 +22,7 @@ In your template:
   });
 </script>
 ```
+
+## IE support
+
+Use `fetch` polyfill, e.g., `<script src="https://polyfill.io/v3/polyfill.min.js?features=fetch"></script>`
