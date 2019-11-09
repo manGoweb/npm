@@ -18,8 +18,8 @@
   "author": "manGoweb <info@mangoweb.cz> (https://mangoweb.cz)",
   "license": "MIT",
   "devDependencies": {
-    "@mangoweb/eslint-config-ts": "^0.0.0",
-    "@mangoweb/prettier-config": "^0.0.0",
+    "@mangoweb/eslint-config-ts": "^0.0.1",
+    "@mangoweb/prettier-config": "^0.0.1",
     "@typescript-eslint/eslint-plugin": "^2.6.1",
     "@typescript-eslint/parser": "^2.6.1",
     "eslint": "^6.6.0",
