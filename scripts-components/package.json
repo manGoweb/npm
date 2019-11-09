@@ -1,0 +1,5 @@
+{
+  "devDependencies": {
+    "@mangoweb/scripts-base": "^0.0.10"
+  }
+}
