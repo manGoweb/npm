@@ -34,9 +34,7 @@
 	"publishConfig": {
 		"access": "public"
 	},
-	"dependencies": {
-		"isinview": "^2.1.0"
-	},
+	"dependencies": {},
 	"peerDependencies": {
 		"@mangoweb/scripts-base": "0.0.10"
 	}
