@@ -2,6 +2,7 @@
   "name": "root",
   "private": true,
   "devDependencies": {
-    "lerna": "^3.0.5"
+    "lerna": "^3.18.4",
+    "lerna-update-wizard": "^0.16.0"
   }
 }
