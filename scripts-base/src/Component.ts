@@ -69,6 +69,7 @@ export class Component<
 			: (this.props[propName] as Exclude<Props[PropName], undefined>)
 	}
 
+	// eslint-disable-next-line @typescript-eslint/no-empty-function
 	public init() {}
 
 	private attachListeners() {
