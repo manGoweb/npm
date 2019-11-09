@@ -13,10 +13,10 @@
   "author": "manGoweb <info@mangoweb.cz> (https://mangoweb.cz)",
   "license": "MIT",
   "dependencies": {
-    "prettier": "^1.17.0"
+    "prettier": "^1.19.1"
   },
   "peerDependencies": {
-    "prettier": ">= 1.17.0"
+    "prettier": ">= 1.19.1"
   },
   "publishConfig": {
     "access": "public"
