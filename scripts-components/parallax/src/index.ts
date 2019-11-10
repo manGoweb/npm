@@ -20,7 +20,7 @@ export class Parallax extends Component<ParallaxProps> {
 
 	onScroll = () => {
 		const reachDistance = window.innerHeight * PARALLAX_REACH
-		const offset = clamp(-1, (this.getElementYCenter() - (window.scrollY + window.innerHeight / 2)) / reachDistance, 1)
+		const offset = clamp(-1, -(this.getElementYCenter() - (window.scrollY + window.innerHeight / 2)) / reachDistance, 1)
 
 		this.el.style.setProperty(`--${this.getPropOrElse('customProperty', 'parallax')}`, `${offset}`)
 	}
