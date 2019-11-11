@@ -28,3 +28,7 @@ In your template:
 	})
 </script>
 ```
+
+## IE support / older Safari ([caniuse](https://caniuse.com/#feat=intersectionobserver))
+
+Use `IntersectionObserver` polyfill, e.g., `<script src="https://polyfill.io/v3/polyfill.min.js?features=IntersectionObserver"></script>`

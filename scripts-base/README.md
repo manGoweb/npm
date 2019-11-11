@@ -126,11 +126,11 @@ const isEnabled = this.getProp('isEnabled', true)
 You can import these and use them via `initializeComponents` side by side with your regular components (baring any potential naming conflicts):
 
 ```typescript
-import { Shapes } from `@mangoweb/scripts-base`
+import { Shapes } from `@mangoweb/shapes`
 import { InView } from `@mangoweb/in-view`
 ```
 
 There are currently these:
 - Emitter
 - [InView](https://www.npmjs.com/package/@mangoweb/in-view)
-- Shapes
+- [Shapes](https://www.npmjs.com/package/@mangoweb/shapes)

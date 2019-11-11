@@ -1,14 +1,9 @@
-import { Component } from '../Component'
+import { Component } from '@mangoweb/scripts-base'
 
 export interface ShapesProps {
 	url: string
 }
 
-/**
- * Shapes component class
- *
- * - injects SVG sprite into body
- */
 export class Shapes extends Component<ShapesProps> {
 	static componentName = 'Shapes'
 
