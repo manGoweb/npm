@@ -1,9 +1,14 @@
 import { Component, EventListeners, DelegateEvent } from '@mangoweb/scripts-base'
 
-export default class Toggler extends Component {
+interface TogglerData {
+	targetSelector: string,
+	defaultClassName?: string
+}
+
+export default class Toggler extends Component<TogglerData> {
 	static componentName = 'Toggler'
 
-	getListeners = (): EventListeners => [['click', '.toggler', this.handleClick]]
+	getListeners = (): EventListeners => [['click', this.props.targetSelector, this.handleClick]]
 
 	handleClick(e: DelegateEvent<'click'>) {
 		const delegateTarget = e.delegateTarget
@@ -12,7 +17,7 @@ export default class Toggler extends Component {
 		const toggleTarget = targetSelector ? document.querySelector(targetSelector) : delegateTarget
 		const removeOthersTargets = othersTargetSelector ? document.querySelectorAll(othersTargetSelector) : null
 		const preventDefault = delegateTarget.dataset.preventDefault
-		const className = delegateTarget.dataset.className || 'is-active'
+		const className = delegateTarget.dataset.className || this.props.defaultClassName || ''
 
 		if (preventDefault) {
 			e.preventDefault()
