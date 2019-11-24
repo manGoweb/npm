@@ -1,4 +1,5 @@
 import { Component } from '@mangoweb/scripts-base'
+import { lightBounds } from 'light-bounds'
 
 interface ParallaxProps {
 	customProperty?: string
@@ -20,14 +21,13 @@ export class Parallax extends Component<ParallaxProps> {
 
 	onScroll = () => {
 		const reachDistance = window.innerHeight * PARALLAX_REACH
-		const offset = clamp(-1, -(this.getElementYCenter() - (window.scrollY + window.innerHeight / 2)) / reachDistance, 1)
+		const offset = clamp(-1, (this.getElementYCenter() - (window.scrollY + window.innerHeight / 2)) / reachDistance, 1)
 
 		this.el.style.setProperty(`--${this.getPropOrElse('customProperty', 'parallax')}`, `${offset}`)
 	}
 
 	getElementYCenter = () => {
-		// @TODO: debounce
-		const rect = this.el.getBoundingClientRect()
+		const rect = lightBounds(this.el)
 		return window.scrollY + rect.top + rect.height / 2
 	}
 }

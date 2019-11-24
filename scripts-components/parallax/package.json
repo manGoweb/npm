@@ -36,5 +36,8 @@
   },
   "peerDependencies": {
     "@mangoweb/scripts-base": "0.0.12"
+  },
+  "dependencies": {
+    "light-bounds": "0.0.6"
   }
 }
