@@ -3,6 +3,7 @@ import { lightBounds } from 'light-bounds'
 
 interface ParallaxProps {
 	customProperty?: string
+	unbounded?: boolean
 }
 
 const PARALLAX_REACH = 1 // 100vh
@@ -21,7 +22,12 @@ export class Parallax extends Component<ParallaxProps> {
 
 	update = () => {
 		const reachDistance = window.innerHeight * PARALLAX_REACH
-		const offset = clamp(-1, (this.getElementYCenter() - (window.scrollY + window.innerHeight / 2)) / reachDistance, 1)
+		const bound = this.getPropOrElse('unbounded', false) ? Number.POSITIVE_INFINITY : 1
+		const offset = clamp(
+			-bound,
+			(this.getElementYCenter() - (window.scrollY + window.innerHeight / 2)) / reachDistance,
+			bound
+		)
 
 		this.el.style.setProperty(`--${this.getPropOrElse('customProperty', 'parallax')}`, `${offset}`)
 	}
