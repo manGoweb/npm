@@ -15,11 +15,11 @@ export class Parallax extends Component<ParallaxProps> {
 	public static componentName = 'Parallax'
 
 	init() {
-		window.addEventListener('scroll', this.onScroll, { passive: true })
-		this.onScroll()
+		lightBounds(this.el, this.update)
+		this.update()
 	}
 
-	onScroll = () => {
+	update = () => {
 		const reachDistance = window.innerHeight * PARALLAX_REACH
 		const offset = clamp(-1, (this.getElementYCenter() - (window.scrollY + window.innerHeight / 2)) / reachDistance, 1)
 
