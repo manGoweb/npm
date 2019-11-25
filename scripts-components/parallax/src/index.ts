@@ -16,7 +16,7 @@ export class Parallax extends Component<ParallaxProps> {
 	public static componentName = 'Parallax'
 
 	init() {
-		lightBounds(this.el, this.update)
+		lightBounds(this.el, { onChange: this.update })
 		this.update()
 	}
 
