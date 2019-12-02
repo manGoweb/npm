@@ -5,5 +5,5 @@
     "scripts-base",
     "scripts-components/*"
   ],
-  "version": "0.0.5"
+  "version": "independent"
 }
