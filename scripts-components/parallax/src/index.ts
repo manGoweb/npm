@@ -1,7 +1,7 @@
 import { Component } from '@mangoweb/scripts-base'
 import { lightBounds } from 'light-bounds'
 
-interface ParallaxProps {
+export interface ParallaxProps {
 	customProperty?: string
 }
 
