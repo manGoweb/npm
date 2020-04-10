@@ -1,7 +1,7 @@
 import { Component, ComponentInitializationError } from '@mangoweb/scripts-base'
 import { IsInView, isInView, isOutOfView, isSupported } from 'isinview'
 
-interface InViewData {
+export interface InViewProps {
 	targets?: string
 	threshold?: number
 
@@ -11,7 +11,7 @@ interface InViewData {
 	isSeenClass?: string
 }
 
-export class InView extends Component<InViewData> {
+export class InView extends Component<InViewProps> {
 	static componentName = 'InView'
 
 	protected readonly targets: IsInView.Target
@@ -22,7 +22,7 @@ export class InView extends Component<InViewData> {
 	protected readonly isBelowViewClass: string
 	protected readonly isSeenClass: string
 
-	public constructor(el: HTMLElement, props: InViewData) {
+	public constructor(el: HTMLElement, props: InViewProps) {
 		super(el, props)
 
 		if (!isSupported()) {
