@@ -1,7 +1,7 @@
 import { Component, ComponentInitializationError } from '@mangoweb/scripts-base'
 import { IsInView, isInView, isOutOfView, isSupported } from 'isinview'
 
-interface InViewProps {
+export interface InViewProps {
 	targets?: string
 	threshold?: number
 
