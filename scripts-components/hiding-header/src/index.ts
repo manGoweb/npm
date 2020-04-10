@@ -1,6 +1,6 @@
 import { Component } from '@mangoweb/scripts-base'
 
-interface HidingHeaderProps {
+export interface HidingHeaderProps {
 	contentSelector?: string
 	heightPropertyName?: string
 	scrollCapPropertyName?: string
