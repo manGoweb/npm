@@ -129,6 +129,7 @@ You can import these and use them via `initializeComponents` side by side with y
 import { HidingHeader } from `@mangoweb/hiding-header`
 import { InView } from `@mangoweb/in-view`
 import { Shapes } from `@mangoweb/shapes`
+import { ShapesFallback } from `@mangoweb/shapes-fallback`
 ```
 
 There are currently these:
@@ -136,3 +137,4 @@ There are currently these:
 - [HidingHeader](https://www.npmjs.com/package/@mangoweb/hiding-header)
 - [InView](https://www.npmjs.com/package/@mangoweb/in-view)
 - [Shapes](https://www.npmjs.com/package/@mangoweb/shapes)
+- [ShapesFallback](https://www.npmjs.com/package/@mangoweb/shapes-fallback)
