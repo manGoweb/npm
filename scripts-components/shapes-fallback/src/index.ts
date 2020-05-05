@@ -39,22 +39,29 @@ export function applyShapesFallbackIfNeeded(parent: HTMLElement) {
 	const shapes = parent.querySelectorAll('svg use')
 	for (let i = 0; i < shapes.length; i++) {
 		const shape = shapes[i]
-		if (!shape.hasAttribute('xlink:href')) {
-			continue
-		}
 
-		const href = shape.getAttribute('xlink:href') || ''
-		const hrefParts = href.split('#')
-		if (hrefParts.length < 2) {
-			continue
-		}
+		const hrefAttributes = ['xlink:href', 'href']
 
-		const [symbolsLocation, symbolId] = hrefParts
+		for (let k = 0; k < hrefAttributes.length; k++) {
+			const hrefAttributeName = hrefAttributes[k]
 
-		shape.setAttribute('xlink:href', `#${symbolId}`)
+			if (!shape.hasAttribute(hrefAttributeName)) {
+				continue
+			}
 
-		if (loadedSymbolsLocations.indexOf(symbolsLocation) < 0) {
-			loadSymbolsLocation(symbolsLocation)
+			const href = shape.getAttribute(hrefAttributeName) || ''
+			const hrefParts = href.split('#')
+			if (hrefParts.length < 2) {
+				continue
+			}
+
+			const [symbolsLocation, symbolId] = hrefParts
+
+			shape.setAttribute(hrefAttributeName, `#${symbolId}`)
+
+			if (loadedSymbolsLocations.indexOf(symbolsLocation) < 0) {
+				loadSymbolsLocation(symbolsLocation)
+			}
 		}
 	}
 }
