@@ -49,8 +49,7 @@ export function applyShapesFallbackIfNeeded(parent: HTMLElement) {
 			continue
 		}
 
-		const symbolsLocation = hrefParts[0]
-		const symbolId = hrefParts[1]
+		const [symbolsLocation, symbolId] = hrefParts
 
 		shape.setAttribute('xlink:href', `#${symbolId}`)
 
