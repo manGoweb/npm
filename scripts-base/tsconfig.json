@@ -13,12 +13,12 @@
       "dom.iterable"
     ],
     "listFiles": true,
-    "module": "commonjs",
+    "module": "es6",
     "moduleResolution": "node",
     "outDir": "./lib",
     "sourceMap": true,
     "strict": true,
-    "target": "es5"
+    "target": "es6"
   },
   "include": [
     "src"
