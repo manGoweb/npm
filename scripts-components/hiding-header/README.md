@@ -17,9 +17,7 @@ This is a [`@mangoweb/scripts-base`](https://www.npmjs.com/package/@mangoweb/scr
 <body>
 	<div class="hidingHeader" id="hidingHeader">
 		<div class="hidingHeader-in">
-			<div class="hidingHeader-content">
-				<!-- Your header -->
-			</div>
+			<!-- Your header -->
 		</div>
 	</div>
 	<script>
@@ -50,9 +48,6 @@ This is a [`@mangoweb/scripts-base`](https://www.npmjs.com/package/@mangoweb/scr
 	position: relative;
 	position: sticky;
 	top: 0;
-}
-
-.hidingHeader-content {
 	pointer-events: auto;
 }
 ```
