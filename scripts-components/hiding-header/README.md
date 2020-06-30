@@ -36,11 +36,11 @@ This is a [`@mangoweb/scripts-base`](https://www.npmjs.com/package/@mangoweb/scr
 ```css
 .hidingHeader {
 	position: relative;
-	--hidingHeader-height: 0px;
-	--hidingHeader-scrollCap: 0px;
+	--hidingHeader-height: auto;
+	--hidingHeader-bounds-height: auto;
 	z-index: 10;
-	min-height: calc(var(--hidingHeader-scrollCap) + var(--hidingHeader-height));
-	margin-bottom: calc(-1 * var(--hidingHeader-scrollCap));
+	height: var(--hidingHeader-bounds-height);
+	margin-bottom: calc(var(--hidingHeader-height) - var(--hidingHeader-bounds-height));
 	pointer-events: none;
 }
 
