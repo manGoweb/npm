@@ -18,9 +18,13 @@
 	},
 	"author": "manGoweb <info@mangoweb.cz> (https://mangoweb.cz)",
 	"license": "MIT",
+	"dependencies": {
+		"hiding-header": "0.1.4"
+	},
 	"devDependencies": {
 		"@mangoweb/eslint-config-ts": "^0.0.0",
 		"@mangoweb/prettier-config": "^0.0.0",
+		"@mangoweb/scripts-base": "0.0.14",
 		"@typescript-eslint/eslint-plugin": "^2.6.1",
 		"@typescript-eslint/parser": "^2.6.1",
 		"eslint": "^6.6.0",
@@ -28,7 +32,6 @@
 		"eslint-plugin-prettier": "^3.1.1",
 		"eslint-plugin-react": "^7.16.0",
 		"eslint-plugin-react-hooks": "^2.2.0",
-		"hiding-header": "^0.1.4",
 		"prettier": "^1.19.1",
 		"typescript": "^3.7.2"
 	},

@@ -9,4 +9,6 @@ export class HidingHeader extends Component<HidingHeaderProps> {
 	init() {
 		hidingHeader(this.el)
 	}
+
+	getListeners = () => []
 }
