@@ -1,6 +1,6 @@
 {
 	"name": "@mangoweb/hiding-header",
-	"version": "0.0.4",
+	"version": "0.0.5",
 	"description": "Hides and reveals header on scroll.",
 	"main": "lib/index.js",
 	"types": "lib/index.d.ts",
@@ -37,6 +37,6 @@
 		"access": "public"
 	},
 	"peerDependencies": {
-		"@mangoweb/scripts-base": "0.0.13"
+		"@mangoweb/scripts-base": "0.0.14"
 	}
 }
