@@ -9,7 +9,7 @@ export type EventMapByElement<E extends ComponentEl> = E extends Window
 	: E extends HTMLBodyElement
 	? HTMLBodyElementEventMap
 	: E extends HTMLVideoElement
-	? HTMLVideoElementEventMap
+	? HTMLMediaElementEventMap
 	: E extends HTMLAudioElement
 	? HTMLMediaElementEventMap
 	: E extends HTMLElement
@@ -28,14 +28,12 @@ export type EventMap =
 	| WindowEventMap
 	| SVGElementEventMap
 	| HTMLBodyElementEventMap
-	| HTMLVideoElementEventMap
 	| HTMLMediaElementEventMap
 	| HTMLElementEventMap
 
 export type CompleteEventMap = WindowEventMap &
 	SVGElementEventMap &
 	HTMLBodyElementEventMap &
-	HTMLVideoElementEventMap &
 	HTMLMediaElementEventMap &
 	HTMLElementEventMap
 
