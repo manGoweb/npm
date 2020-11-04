@@ -36,7 +36,7 @@
     "access": "public"
   },
   "peerDependencies": {
-    "@mangoweb/scripts-base": "0.0.12"
+    "@mangoweb/scripts-base": "0.0.15"
   },
   "dependencies": {
     "light-bounds": "0.0.7"

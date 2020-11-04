@@ -17,7 +17,7 @@ In your template:
 	window.initComponents = (window.initComponents || []).push({
 		name: 'Parallax',
 		place: '#targetElement',
-		data: {
+		props: {
 			// Optional
 			customProperty: 'position', // Custom property name
 		},
