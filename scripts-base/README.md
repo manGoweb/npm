@@ -10,33 +10,31 @@ The manGoweb template for scripts employed on small to medium sized projects.
 This package is generally intended for live development with the occasional BC break.
 Should that affect your application because you failed to fix the version, that's on you.
 
-
 ## Usage
 
 ### How to use a component
 
 In your `index.ts` file (or equivalent), use:
+
 ```typescript
 import { initializeComponents } from '@mangoweb/scripts-base'
 
 import { MyComponent } from './components/MyComponent'
 
-initializeComponents(
-	[
-		MyComponent
-	],
-	'initComponents'
-)
+initializeComponents([MyComponent], 'initComponents')
 ```
+
 In your template:
+
 ```html
 <script>
 	window.initComponents = (window.initComponents || []).push({
 		name: 'MyComponent', // As specified by `displayName`
 		place: '#myDiv', // A selector or an element, e.g. `document.body`
-		data: { // Any data, as required by the component
-			foo: 123
-		}
+		data: {
+			// Any data, as required by the component
+			foo: 123,
+		},
 	})
 </script>
 ```
@@ -44,8 +42,10 @@ In your template:
 ### How to write a component
 
 You must:
+
 - Inherit from `Component`
 - Define `static componentName: string`
+
 ```typescript
 import { Component, DelegateEvent, EventListeners } from '@mangoweb/scripts-base'
 
@@ -87,18 +87,22 @@ The `EventListeners` return type of `getListeners` optionally accepts the same t
 `Components`. It may be necessary to specify one or both if inference fails.
 
 #### Life-cycle methods
+
 The following happens to your component during initialization (in that order):
-1) The `constructor` is called (if it exists) as your component is instantialized.
-2) Event listeners are attached
-3) The `init` method is called (if it exists)
+
+1. The `constructor` is called (if it exists) as your component is instantialized.
+2. Event listeners are attached
+3. The `init` method is called (if it exists)
 
 You typically don't need to implement a `constructor` but it can be useful to avoid TS2564.
 
 #### Failed initialization
+
 If for whatever reason you decide that the component is unable to run, just throw a `ComponentInitializationError` from either the `constructor` or the `init` method.
 You don't need to worry about any impact on production environment ‒ the error is always caught and its message only displayed when `DEBUG` is `true`.
 
 Valid reasons for yielding and error include:
+
 - Invalid `data` supplied
 - A crucial element in the DOM is not found
 - A crucial API is not present
@@ -111,12 +115,15 @@ To that end, you may supply the second generic parameter.
 For example, to attach your component on a `<form>`, you can use `Component<MyComponentData, HTMLFormElement>`.
 
 To achieve something similar for `el`'s children, you can use `getChild` or `getChildren`:
+
 ```typescript
 const link: HTMLAnchorElement = this.getChild('.myLink', HTMLAnchorElement)
 ```
 
 #### Property defaults
+
 To get a property value with a default, you can use `getProp`. For example:
+
 ```typescript
 const isEnabled = this.getProp('isEnabled', true)
 ```
@@ -128,13 +135,16 @@ You can import these and use them via `initializeComponents` side by side with y
 ```typescript
 import { HidingHeader } from `@mangoweb/hiding-header`
 import { InView } from `@mangoweb/in-view`
+import { Parallax } from `@mangoweb/parallax`
 import { Shapes } from `@mangoweb/shapes`
 import { ShapesFallback } from `@mangoweb/shapes-fallback`
 ```
 
 There are currently these:
+
 - Emitter
 - [HidingHeader](https://www.npmjs.com/package/@mangoweb/hiding-header)
 - [InView](https://www.npmjs.com/package/@mangoweb/in-view)
+- [Parallax](https://www.npmjs.com/package/@mangoweb/parallax)
 - [Shapes](https://www.npmjs.com/package/@mangoweb/shapes)
 - [ShapesFallback](https://www.npmjs.com/package/@mangoweb/shapes-fallback)
