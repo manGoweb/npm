@@ -1,4 +1,4 @@
-# InView
+# Parallax
 
 The manGoweb Parallax component. Watches elements vertical position in viewport.
 
