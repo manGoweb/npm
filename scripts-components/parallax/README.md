@@ -19,7 +19,9 @@ In your template:
 		place: '#targetElement',
 		props: {
 			// Optional
-			customProperty: 'position', // Custom property name
+			offsetPropertyName: 'offset', // distance between element y center and window y center
+			heightPropertyName: 'height', // element height
+			windowHeightPropertyName: 'windowHeight',
 		},
 	})
 </script>
@@ -29,6 +31,6 @@ In your styles
 
 ```css
 #targetElement {
-	transform: translateY(calc(var(--position, 0) * 20vh)); // Translates by 0 pixels when javascript is disabled
+	transform: translateY(calc(var(--offset, 0) * 20vh)); // Translates by 0 pixels when javascript is disabled
 }
 ```
