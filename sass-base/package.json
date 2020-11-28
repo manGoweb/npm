@@ -1,6 +1,6 @@
 {
   "name": "@mangoweb/sass-base",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "The manGoweb template for sass styles employed on small to medium sized projects.",
   "main": "index.sass",
   "scripts": {
