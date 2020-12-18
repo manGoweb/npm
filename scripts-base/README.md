@@ -133,11 +133,11 @@ const isEnabled = this.getProp('isEnabled', true)
 You can import these and use them via `initializeComponents` side by side with your regular components (baring any potential naming conflicts):
 
 ```typescript
-import { HidingHeader } from `@mangoweb/hiding-header`
-import { InView } from `@mangoweb/in-view`
-import { Parallax } from `@mangoweb/parallax`
-import { Shapes } from `@mangoweb/shapes`
-import { ShapesFallback } from `@mangoweb/shapes-fallback`
+import { HidingHeader } from '@mangoweb/hiding-header'
+import { InView } from '@mangoweb/in-view'
+import { Parallax } from '@mangoweb/parallax'
+import { Shapes } from '@mangoweb/shapes'
+import { ShapesFallback } from '@mangoweb/shapes-fallback'
 ```
 
 There are currently these:
