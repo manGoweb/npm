@@ -5,7 +5,9 @@ It defines abstract definitions, animation keyframes, functions, mixins, a globa
 
 ## Installation
 
-`$ npm install @mangoweb/sass-base`
+```bash
+npm install @mangoweb/sass-base
+```
 
 ⚠️ You might want to also fix the package version so that any potential future backwards incompatibilities don't break your build.
 This package is generally intended for live development with the occasional BC break.

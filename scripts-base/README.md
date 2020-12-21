@@ -4,7 +4,9 @@ The manGoweb template for scripts employed on small to medium sized projects.
 
 ## Installation
 
-`$ npm install @mangoweb/scripts-base`
+```bash
+npm install @mangoweb/scripts-base
+```
 
 ⚠️ You might want to also fix the package version so that any potential future backwards incompatibilities don't break your build.
 This package is generally intended for live development with the occasional BC break.

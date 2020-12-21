@@ -5,11 +5,11 @@ ESLint configuration using Prettier designed for TS.
 ## Installation
 
 1) Install the config:
-    `$ npm install @mangoweb/eslint-config-ts --save-dev`
+    `npm install @mangoweb/eslint-config-ts --save-dev`
 2) And its peer dependencies:
-    `$ npm install @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint eslint-config-prettier eslint-plugin-prettier eslint-plugin-react eslint-plugin-react-hooks prettier --save-dev`
+    `npm install @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint eslint-config-prettier eslint-plugin-prettier eslint-plugin-react eslint-plugin-react-hooks prettier --save-dev`
 3) If you want to use the manGoweb prettier config, also run
-    `$ npm install @mangoweb/prettier-config --save-dev`
+    `npm install @mangoweb/prettier-config --save-dev`
 
 ⚠️ You might want to also fix the package version so that any potential future backwards incompatibilities don't break your build.
 This package is generally intended for live development with the occasional BC break.
