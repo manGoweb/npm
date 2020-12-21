@@ -4,7 +4,9 @@ The manGoweb ShapesFallback component.
 
 ## Installation
 
-`$ npm install @mangoweb/shapes-fallback @mangoweb/scripts-base`
+```bash
+npm install @mangoweb/shapes-fallback @mangoweb/scripts-base
+```
 
 This is a [`@mangoweb/scripts-base`](https://www.npmjs.com/package/@mangoweb/scripts-base) component.
 

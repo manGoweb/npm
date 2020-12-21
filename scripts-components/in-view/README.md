@@ -4,7 +4,9 @@ The manGoweb InView component. Watches elements entering and leaving viewport.
 
 ## Installation
 
-`$ npm install @mangoweb/in-view @mangoweb/scripts-base`
+```bash
+npm install @mangoweb/in-view @mangoweb/scripts-base
+```
 
 This is a [`@mangoweb/scripts-base`](https://www.npmjs.com/package/@mangoweb/scripts-base) component.
 
