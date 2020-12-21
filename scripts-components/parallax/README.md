@@ -2,6 +2,8 @@
 
 The manGoweb Parallax component. Watches elements vertical position in viewport.
 
+Demo: [codesandbox.io/s/mangowebparallax-demo-hz24v](https://codesandbox.io/s/mangowebparallax-demo-hz24v?file=/index.html)
+
 ## Installation
 
 `$ npm install @mangoweb/parallax @mangoweb/scripts-base`
