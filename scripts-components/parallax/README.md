@@ -6,7 +6,9 @@ Demo: [codesandbox.io/s/mangowebparallax-demo-hz24v](https://codesandbox.io/s/ma
 
 ## Installation
 
-`$ npm install @mangoweb/parallax @mangoweb/scripts-base`
+```bash
+npm install @mangoweb/parallax @mangoweb/scripts-base
+```
 
 This is a [`@mangoweb/scripts-base`](https://www.npmjs.com/package/@mangoweb/scripts-base) component.
 
