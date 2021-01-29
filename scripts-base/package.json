@@ -1,6 +1,6 @@
 {
   "name": "@mangoweb/scripts-base",
-  "version": "0.0.16",
+  "version": "0.0.17",
   "description": "Simple component model for small to medium sites. Usable from JS & TS.",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
