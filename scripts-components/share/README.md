@@ -15,9 +15,12 @@ This is a [`@mangoweb/scripts-base`](https://www.npmjs.com/package/@mangoweb/scr
 In your template:
 
 ```html
+<button id="share-button" type="button">Share</button>
+
 <script>
 	window.initComponents = (window.initComponents || []).push({
 		name: 'Share',
+		place: '#share-button',
 		props: {
 			// optional
 			title: 'Example web',
