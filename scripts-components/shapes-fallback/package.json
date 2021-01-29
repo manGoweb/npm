@@ -14,7 +14,7 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/manGoweb/npm/tree/master/scripts-base"
+		"url": "https://github.com/manGoweb/npm/tree/master/scripts-components/shapes-fallback"
 	},
 	"author": "manGoweb <info@mangoweb.cz> (https://mangoweb.cz)",
 	"license": "MIT",

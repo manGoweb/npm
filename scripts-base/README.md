@@ -140,6 +140,7 @@ import { InView } from '@mangoweb/in-view'
 import { Parallax } from '@mangoweb/parallax'
 import { Shapes } from '@mangoweb/shapes'
 import { ShapesFallback } from '@mangoweb/shapes-fallback'
+import { Share } from '@mangoweb/share'
 ```
 
 There are currently these:
@@ -150,3 +151,4 @@ There are currently these:
 - [Parallax](https://www.npmjs.com/package/@mangoweb/parallax)
 - [Shapes](https://www.npmjs.com/package/@mangoweb/shapes)
 - [ShapesFallback](https://www.npmjs.com/package/@mangoweb/shapes-fallback)
+- [Share](https://www.npmjs.com/package/@mangoweb/share)
