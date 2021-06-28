@@ -1,2 +1,4 @@
+@use 'sass:math'
+
 @function emToMem($x)
-	@return $x / 1em * 1Mem
+	@return math.div($x, 1em) * 1Mem
