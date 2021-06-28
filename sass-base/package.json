@@ -4,7 +4,7 @@
   "description": "The manGoweb template for sass styles employed on small to medium sized projects.",
   "main": "index.sass",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "sass index.sass > /dev/null && echo Ok",
     "build": ":",
     "prepublish": "npm run build"
   },
@@ -29,5 +29,8 @@
   "prepare": "npm run build",
   "publishConfig": {
     "access": "public"
+  },
+  "devDependencies": {
+    "sass": "^1.35.1"
   }
 }
