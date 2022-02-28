@@ -1,44 +1,44 @@
 {
-  "name": "@mangoweb/parallax",
-  "version": "0.0.10",
-  "description": "Watches elements vertical position in viewport.",
-  "main": "lib/index.js",
-  "types": "lib/index.d.ts",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc",
-    "start": "tsc --watch",
-    "eslint:lint": "eslint \"src/**/*.{ts,tsx}\" ",
-    "eslint:fix": "eslint --fix \"src/**/*.{ts,tsx}\" ",
-    "prepublish": "npm run build"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/manGoweb/npm/tree/master/scripts-components/parallax"
-  },
-  "author": "manGoweb <info@mangoweb.cz> (https://mangoweb.cz)",
-  "license": "MIT",
-  "devDependencies": {
-    "@mangoweb/eslint-config-ts": "^0.0.0",
-    "@mangoweb/prettier-config": "^0.0.0",
-    "@typescript-eslint/eslint-plugin": "^2.6.1",
-    "@typescript-eslint/parser": "^2.6.1",
-    "eslint": "^6.6.0",
-    "eslint-config-prettier": "^6.5.0",
-    "eslint-plugin-prettier": "^3.1.1",
-    "eslint-plugin-react": "^7.16.0",
-    "eslint-plugin-react-hooks": "^2.2.0",
-    "prettier": "^1.19.1",
-    "typescript": "^3.7.2"
-  },
-  "prepare": "npm run build",
-  "publishConfig": {
-    "access": "public"
-  },
-  "peerDependencies": {
-    "@mangoweb/scripts-base": "0.0.15"
-  },
-  "dependencies": {
-    "light-bounds": "0.0.7"
-  }
+	"name": "@mangoweb/parallax",
+	"version": "0.0.10",
+	"description": "Watches elements vertical position in viewport.",
+	"main": "lib/index.js",
+	"types": "lib/index.d.ts",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"build": "tsc",
+		"start": "tsc --watch",
+		"eslint:lint": "eslint \"src/**/*.{ts,tsx}\" ",
+		"eslint:fix": "eslint --fix \"src/**/*.{ts,tsx}\" ",
+		"prepare": "npm run build"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/manGoweb/npm/tree/master/scripts-components/parallax"
+	},
+	"author": "manGoweb <info@mangoweb.cz> (https://mangoweb.cz)",
+	"license": "MIT",
+	"devDependencies": {
+		"@mangoweb/eslint-config-ts": "^0.0.0",
+		"@mangoweb/prettier-config": "^0.0.0",
+		"@typescript-eslint/eslint-plugin": "^2.6.1",
+		"@typescript-eslint/parser": "^2.6.1",
+		"eslint": "^6.6.0",
+		"eslint-config-prettier": "^6.5.0",
+		"eslint-plugin-prettier": "^3.1.1",
+		"eslint-plugin-react": "^7.16.0",
+		"eslint-plugin-react-hooks": "^2.2.0",
+		"prettier": "^1.19.1",
+		"typescript": "^3.7.2"
+	},
+	"prepare": "npm run build",
+	"publishConfig": {
+		"access": "public"
+	},
+	"peerDependencies": {
+		"@mangoweb/scripts-base": "0.0.15"
+	},
+	"dependencies": {
+		"light-bounds": "0.0.7"
+	}
 }

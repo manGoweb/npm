@@ -10,7 +10,7 @@
 		"start": "tsc --watch",
 		"eslint:lint": "eslint \"src/**/*.{ts,tsx}\" ",
 		"eslint:fix": "eslint --fix \"src/**/*.{ts,tsx}\" ",
-		"prepublish": "npm run build"
+		"prepare": "npm run build"
 	},
 	"repository": {
 		"type": "git",
