@@ -1,6 +1,6 @@
 {
 	"name": "@mangoweb/shapes-fallback",
-	"version": "0.0.4",
+	"version": "0.0.5",
 	"description": "Injects svg with symbols if needed.",
 	"main": "lib/index.js",
 	"types": "lib/index.d.ts",
