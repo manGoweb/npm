@@ -7,6 +7,6 @@
 export * from './Component.js'
 export * from './componentTypes.js'
 
-export * from './components'
-export * from './utils'
+export * from './components/index.js'
+export * from './utils/index.js'
 export * from './initializeComponents.js'

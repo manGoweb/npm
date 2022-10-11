@@ -7,7 +7,7 @@ import {
 	EventMap,
 	EventMapByElement,
 } from './componentTypes.js'
-import { matchesSelector } from './utils'
+import { matchesSelector } from './utils/index.js'
 
 export interface ComponentConstructor<
 	Props,
