@@ -1,6 +1,6 @@
 {
 	"name": "@mangoweb/in-view",
-	"version": "0.0.7",
+	"version": "0.0.8",
 	"description": "Watches elements entering and leaving viewport.",
 	"main": "lib/index.js",
 	"types": "lib/index.d.ts",
