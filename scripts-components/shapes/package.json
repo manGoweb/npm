@@ -37,6 +37,6 @@
 	},
 	"dependencies": {},
 	"peerDependencies": {
-		"@mangoweb/scripts-base": "0.0.10"
+		"@mangoweb/scripts-base": "0.0.17"
 	}
 }
