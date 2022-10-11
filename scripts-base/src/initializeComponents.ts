@@ -1,5 +1,5 @@
-import { ComponentConstructor, ComponentInitializationError } from './Component'
-import { CompleteEventMap } from './componentTypes'
+import { ComponentConstructor, ComponentInitializationError } from './Component.js'
+import { CompleteEventMap } from './componentTypes.js'
 
 export const initializeComponents = (
 	components: Array<ComponentConstructor<any, any, CompleteEventMap>>,

@@ -6,7 +6,7 @@ import {
 	EventListeners,
 	EventMap,
 	EventMapByElement,
-} from './componentTypes'
+} from './componentTypes.js'
 import { matchesSelector } from './utils'
 
 export interface ComponentConstructor<

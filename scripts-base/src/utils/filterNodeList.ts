@@ -1,4 +1,4 @@
-import { matchesSelector } from './matchesSelector'
+import { matchesSelector } from './matchesSelector.js'
 
 export const filterNodeList = <E extends HTMLElement>(
 	list: NodeListOf<E> | HTMLCollectionOf<E>,
